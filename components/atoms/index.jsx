@@ -12,6 +12,8 @@ export { default as Input } from "./Input";
 export { default as Options } from "./Options";
 export { default as ProgressBar } from "./ProgressBar";
 export { default as Search } from "./Search";
+export { default as TableHeader } from "./TableHeader";
+export { default as TableData } from "./TableData";
 export { default as Title } from "./Title";
 export { default as Toggle } from "./Toggle";
 export { default as Tooltip } from "./Tooltip";
