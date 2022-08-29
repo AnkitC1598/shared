@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { ArrowDownTrayIcon, XMarkIcon } from "@heroicons/react/solid";
+import { ArrowDownTrayIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { formatDistanceToNow } from "date-fns";
 import { Fragment } from "react";
 import { downloadFile } from "../../../utils";

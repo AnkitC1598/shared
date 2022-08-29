@@ -1,4 +1,4 @@
-import { CheckIcon } from "@heroicons/react/outline";
+import { CheckIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { classNames } from "../../../utils";
 import { Input } from "../../atoms";

@@ -1,14 +1,12 @@
 import { Tab, Transition } from "@headlessui/react";
-import { Cog6ToothIcon } from "@heroicons/react/outline";
+import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import {
-	ChatBubbleBottomCenterTextIcon,
-	ClipboardDocumentListIcon,
-	FolderIcon,
-	HandIcon,
-	ArrowLeftOnRectangleIcon,
-	ArrowRightOnRectangleIcon,
-	UserGroupIcon
-} from "@heroicons/react/solid";
+    ArrowLeftOnRectangleIcon,
+    ArrowRightOnRectangleIcon, ChatBubbleBottomCenterTextIcon,
+    ClipboardDocumentListIcon,
+    FolderIcon,
+    HandIcon, UserGroupIcon
+} from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { Agendas, Chats, Doubts, Participants, PasteBin, Settings } from "..";
 import { classNames } from "../../../utils";

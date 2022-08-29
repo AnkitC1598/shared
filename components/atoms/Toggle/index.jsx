@@ -1,5 +1,5 @@
 import { Switch } from "@headlessui/react";
-import { CheckIcon, XMarkIcon } from "@heroicons/react/solid";
+import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { classNames } from "../../../utils";
 
 const Toggle = ({

@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 const Search = ({ setSearch }) => {
 	return (

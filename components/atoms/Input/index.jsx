@@ -1,4 +1,4 @@
-import { PaperAirplaneIcon } from "@heroicons/react/solid";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 
 const Input = ({
 	handleSubmit,
@@ -26,7 +26,6 @@ const Input = ({
 					disabled={!defaultValue}
 					className="absolute inset-y-0 right-0 inline-flex items-center rounded-r-md border border-l-0 border-neutral-300 bg-slate-50 px-2 text-sm text-slate-500 disabled:opacity-50 dark:border-neutral-800"
 				>
-					{/* <PaperAirplaneIcon className="h-6 w-6 rotate-90" /> */}
 					{submitIcon}
 				</button>
 			</form>

@@ -1,9 +1,6 @@
 import {
-	MoonIcon,
-	SunIcon,
-	SpeakerXMarkIcon,
-	SpeakerWaveIcon
-} from "@heroicons/react/solid";
+    MoonIcon, SpeakerWaveIcon, SpeakerXMarkIcon, SunIcon
+} from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useDarkMode } from "../../../hooks";
 import { Toggle } from "../../atoms";
