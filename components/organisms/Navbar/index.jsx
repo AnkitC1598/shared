@@ -4,10 +4,13 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { Toggle } from "../../atoms";
 
-const Navbar = ({ dispatchToApp, focusModeEnabled, navigation, withAuth }) => {
-	if (Object.prototype.toString.call(dispatchToApp) !== '[object Function]') return null
-	if (Object.prototype.toString.call(focusModeEnabled) !== '[object Boolean]') return null
-	if (Object.prototype.toString.call(withAuth) !== '[object Boolean]') return null
+const Navbar = ({
+	dispatchToApp,
+	focusModeEnabled,
+	navigation,
+	needFocusMode,
+	withAuth,
+}) => {
 	return (
 		<>
 			<div className="mx-auto w-full border-b border-neutral-200 bg-white text-slate-900 dark:border-neutral-800 dark:bg-neutral-900 dark:text-slate-200">
@@ -36,25 +39,36 @@ const Navbar = ({ dispatchToApp, focusModeEnabled, navigation, withAuth }) => {
 									</a>
 								</Link>
 								<span className="flex space-x-4">
-									<Toggle
-										id="focusMode"
-										trueState={{
-											bg: "bg-lu-500",
-											icon: () => <></>,
-											iconColor: "text-gray-900",
-										}}
-										falseState={{
-											bg: "bg-slate-200",
-											icon: () => <></>,
-											iconColor: "text-gray-900",
-										}}
-										value={focusModeEnabled}
-										onChange={() =>
-											dispatchToApp({
-												type: "TOGGLE_FOCUS_MODE",
-											})
-										}
-									/>
+									{Object.prototype.toString.call(
+										dispatchToApp
+									) === "[object Function]" &&
+									Object.prototype.toString.call(
+										focusModeEnabled
+									) === "[object Boolean]" &&
+									Object.prototype.toString.call(
+										needFocusMode
+									) !== "[object Boolean]" &&
+									needFocusMode ? (
+										<Toggle
+											id="focusMode"
+											trueState={{
+												bg: "bg-lu-500",
+												icon: () => <></>,
+												iconColor: "text-gray-900",
+											}}
+											falseState={{
+												bg: "bg-slate-200",
+												icon: () => <></>,
+												iconColor: "text-gray-900",
+											}}
+											value={focusModeEnabled}
+											onChange={() =>
+												dispatchToApp({
+													type: "TOGGLE_FOCUS_MODE",
+												})
+											}
+										/>
+									) : null}
 									<div className="-mr-2 flex items-center md:hidden">
 										<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lu-500 dark:bg-neutral-900">
 											<span className="sr-only">
@@ -69,17 +83,21 @@ const Navbar = ({ dispatchToApp, focusModeEnabled, navigation, withAuth }) => {
 								</span>
 							</div>
 							<div className="hidden md:ml-10 md:block md:space-x-5">
-								{Object.prototype.toString.call(navigation) === '[object Array]' ? navigation.map((item) => (
-									<a
-										key={item.name}
-										href={item.href}
-										target="_blank"
-										className="font-medium text-slate-900 dark:text-slate-200"
-									>
-										{item.name}
-									</a>
-								)) : null}
-								{withAuth ? (
+								{Object.prototype.toString.call(navigation) ===
+									"[object Array]" && navigation.length
+									? navigation.map((item) => (
+											<a
+												key={item.name}
+												href={item.href}
+												target="_blank"
+												className="font-medium text-slate-900 dark:text-slate-200"
+											>
+												{item.name}
+											</a>
+									  ))
+									: null}
+								{Object.prototype.toString.call(withAuth) ===
+									"[object Boolean]" && withAuth ? (
 									<>
 										<a
 											href="https://letsupgrade.in/login"
@@ -139,23 +157,28 @@ const Navbar = ({ dispatchToApp, focusModeEnabled, navigation, withAuth }) => {
 									</div>
 								</div>
 								<div className="space-y-1 px-2 pt-2 pb-3">
-									{Object.prototype.toString.call(navigation) === '[object Array]' ? navigation.map((item) => (
-										<a
-											key={item.name}
-											href={item.href}
-											target="_blank"
-											className="block rounded-md px-3 py-2 text-base font-medium text-slate-900 hover:bg-slate-50"
-										>
-											{item.name}
-										</a>
-									)) : null}
-									{withAuth ? (
+									{Object.prototype.toString.call(
+										navigation
+									) === "[object Array]"
+										? navigation.map((item) => (
+												<a
+													key={item.name}
+													href={item.href}
+													target="_blank"
+													className="block rounded-md px-3 py-2 text-base font-medium text-slate-900 hover:bg-slate-50"
+												>
+													{item.name}
+												</a>
+										  ))
+										: null}
+									{Object.prototype.toString.call(
+										withAuth
+									) === "[object Boolean]" && withAuth ? (
 										<div className="flex space-x-2">
 											<a
 												href="https://letsupgrade.in/login"
 												target="_blank"
-												className="w-1/2 items-center justify-center rounded-md border border-neutral-900 bg-slate-900 px-4 py-2
-									text-center text-slate-100 transition ease-in hover:scale-[1.01] hover:shadow-lg"
+												className="w-1/2 items-center justify-center rounded-md border border-neutral-900 bg-slate-900 px-4 py-2 text-center text-slate-100 transition ease-in hover:scale-[1.01] hover:shadow-lg"
 											>
 												Sign In
 											</a>
@@ -182,7 +205,8 @@ Navbar.defaultProps = {
 	dispatchToApp: () => false,
 	focusModeEnabled: false,
 	navigation: [],
+	needFocusMode: false,
 	withAuth: false,
-}
+};
 
 export default Navbar;
