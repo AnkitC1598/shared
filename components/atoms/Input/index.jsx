@@ -41,7 +41,7 @@ Input.defaultProps = {
 	placeholder: "",
 	defaultValue: "",
 	setValue: console.log,
-	submitIcon: <PaperAirplaneIcon className="h-6 w-6 rotate-90" />,
+	submitIcon: <PaperAirplaneIcon className="h-6 w-6" />,
 };
 
 export default Input;
