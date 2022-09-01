@@ -5,16 +5,17 @@ import { classNames } from "../../../utils";
 const Toggle = ({
 	size,
 	label,
-	id,
 	value,
 	onChange,
 	vertical,
 	trueState,
 	falseState,
+	labelPosition,
 }) => {
 	let toggleClass;
 	let thumbClass;
 	let translate;
+	let labelPosClass;
 	switch (size) {
 		case "sm":
 			toggleClass = "h-4 w-7";
@@ -27,23 +28,44 @@ const Toggle = ({
 			translate = "translate-x-5";
 			break;
 	}
+	switch (labelPosition) {
+		case "top":
+			labelPosClass = "flex-col space-y-2";
+			break;
+		case "left":
+			labelPosClass = "justify-between w-full items-center";
+			break;
+		case "right":
+			labelPosClass =
+				"flex-row-reverse justify-between w-full items-center";
+			break;
+		case "bottom":
+			labelPosClass = "flex-col-reverse";
+			break;
+		default:
+			toggleClass = "h-6 w-11";
+			thumbClass = "h-5 w-5";
+			translate = "translate-x-5";
+			break;
+	}
 
 	return (
 		<>
 			<Switch.Group
 				as="div"
-				className="rotat flex items-center justify-between"
+				className={classNames("h-full flex", labelPosClass)}
 			>
 				{label && (
-					<span className="flex flex-grow flex-col">
-						<Switch.Label
-							as="span"
-							className="text-slate-900 dark:text-slate-200"
-							passive
-						>
-							{label}
-						</Switch.Label>
-					</span>
+					<Switch.Label
+						as="span"
+						className={classNames(
+							"block text-sm font-medium text-slate-700 dark:text-slate-200",
+							labelPosition === "bottom" && "mt-2"
+						)}
+						passive
+					>
+						{label}
+					</Switch.Label>
 				)}
 				<Switch
 					checked={value}
@@ -121,6 +143,8 @@ Toggle.defaultProps = {
 		icon: XMarkIcon,
 		iconColor: "text-gray-900",
 	},
+	vertical: false,
+	labelPosition: "left",
 };
 
 export default Toggle;

@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Fragment } from "react";
 import { Toggle } from "../../atoms";
+import NavDropDown from "../../molecules/NavDropDown";
 
 const Navbar = ({
 	dispatchToApp,
@@ -20,7 +21,7 @@ const Navbar = ({
 						aria-label="Global"
 					>
 						<div className="flex flex-1 items-center justify-between">
-							<div className="flex w-full items-center justify-between">
+							<div className="flex-1 flex items-center justify-between">
 								<Link href="/">
 									<a>
 										<span className="sr-only">
@@ -69,8 +70,8 @@ const Navbar = ({
 											}
 										/>
 									) : null}
-									<div className="-mr-2 flex items-center md:hidden">
-										<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lu-500 dark:bg-neutral-900">
+									<div className="flex items-center md:hidden">
+										<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-0 dark:bg-neutral-900">
 											<span className="sr-only">
 												Open main menu
 											</span>
@@ -85,16 +86,35 @@ const Navbar = ({
 							<div className="hidden md:ml-10 md:block md:space-x-5">
 								{Object.prototype.toString.call(navigation) ===
 									"[object Array]" && navigation.length
-									? navigation.map((item) => (
-											<a
-												key={item.name}
-												href={item.href}
-												target="_blank"
-												className="font-medium text-slate-900 dark:text-slate-200"
-											>
-												{item.name}
-											</a>
-									  ))
+									? navigation.map((item) =>
+											item.hasDropDown ? (
+												<NavDropDown
+													key={item.name}
+													name={item.name}
+													navDropDownItems={
+														item.dropDown
+													}
+												/>
+											) : item.isExternal ? (
+												<a
+													key={item.name}
+													href={item.href}
+													target="_blank"
+													className="font-medium text-slate-900 dark:text-slate-200"
+												>
+													{item.name}
+												</a>
+											) : (
+												<Link
+													key={item.name}
+													href={item.href}
+												>
+													<a className="font-medium text-slate-900 dark:text-slate-200">
+														{item.name}
+													</a>
+												</Link>
+											)
+									  )
 									: null}
 								{Object.prototype.toString.call(withAuth) ===
 									"[object Boolean]" && withAuth ? (
@@ -132,32 +152,33 @@ const Navbar = ({
 							focus
 							className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
 						>
-							<div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-								<div className="flex items-center justify-between px-5 pt-4">
-									<img
-										className="hidden h-8 w-auto dark:block sm:h-10"
-										src="/logo_white.png"
-										alt="LetsUpgrade"
-									/>
-									<img
-										className="block h-8 w-auto dark:hidden sm:h-10"
-										src="/logo.png"
-										alt="LetsUpgrade"
-									/>
-									<div className="-mr-2">
-										<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lu-500">
-											<span className="sr-only">
-												Close main menu
-											</span>
-											<XMarkIcon
-												className="h-6 w-6"
-												aria-hidden="true"
-											/>
-										</Popover.Button>
+							{({ close }) => (
+								<div className="rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+									<div className="flex items-center justify-between px-5 pt-4">
+										<img
+											className="hidden h-8 w-auto dark:block sm:h-10"
+											src="/logo_white.png"
+											alt="LetsUpgrade"
+										/>
+										<img
+											className="block h-8 w-auto dark:hidden sm:h-10"
+											src="/logo.png"
+											alt="LetsUpgrade"
+										/>
+										<div className="-mr-2">
+											<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-0">
+												<span className="sr-only">
+													Close main menu
+												</span>
+												<XMarkIcon
+													className="h-6 w-6"
+													aria-hidden="true"
+												/>
+											</Popover.Button>
+										</div>
 									</div>
-								</div>
-								<div className="space-y-1 px-2 pt-2 pb-3">
-									{Object.prototype.toString.call(
+									<div className="space-y-1 p-4 pb-2">
+										{/* {Object.prototype.toString.call(
 										navigation
 									) === "[object Array]"
 										? navigation.map((item) => (
@@ -170,29 +191,66 @@ const Navbar = ({
 													{item.name}
 												</a>
 										  ))
-										: null}
-									{Object.prototype.toString.call(
-										withAuth
-									) === "[object Boolean]" && withAuth ? (
-										<div className="flex space-x-2">
-											<a
-												href="https://letsupgrade.in/login"
-												target="_blank"
-												className="w-1/2 items-center justify-center rounded-md border border-neutral-900 bg-slate-900 px-4 py-2 text-center text-slate-100 transition ease-in hover:scale-[1.01] hover:shadow-lg"
-											>
-												Sign In
-											</a>
-											<a
-												href="https://letsupgrade.in/register"
-												target="_blank"
-												className="w-1/2 items-center justify-center rounded-md border border-neutral-300 bg-white px-4 py-2 text-center text-slate-900 transition ease-in hover:scale-[1.01] hover:border-neutral-900 hover:bg-slate-900 hover:text-slate-100 hover:shadow-lg dark:border-neutral-800"
-											>
-												Sign Up
-											</a>
-										</div>
-									) : null}
+										: null} */}
+										{Object.prototype.toString.call(
+											navigation
+										) === "[object Array]" &&
+										navigation.length
+											? navigation.map((item) =>
+													item.hasDropDown ? (
+														<NavDropDown
+															key={item.name}
+															href={item.href}
+															name={item.name}
+															navDropDownItems={
+																item.dropDown
+															}
+															close={close}
+														/>
+													) : item.isExternal ? (
+														<a
+															key={item.name}
+															href={item.href}
+															target="_blank"
+															className="font-medium text-slate-900 dark:text-slate-200"
+														>
+															{item.name}
+														</a>
+													) : (
+														<Link
+															key={item.name}
+															href={item.href}
+														>
+															<a className="font-medium text-slate-900 dark:text-slate-200">
+																{item.name}
+															</a>
+														</Link>
+													)
+											  )
+											: null}
+										{Object.prototype.toString.call(
+											withAuth
+										) === "[object Boolean]" && withAuth ? (
+											<div className="flex space-x-2">
+												<a
+													href="https://letsupgrade.in/login"
+													target="_blank"
+													className="w-1/2 items-center justify-center rounded-md border border-neutral-900 bg-slate-900 px-4 py-2 text-center text-slate-100 transition ease-in hover:scale-[1.01] hover:shadow-lg"
+												>
+													Sign In
+												</a>
+												<a
+													href="https://letsupgrade.in/register"
+													target="_blank"
+													className="w-1/2 items-center justify-center rounded-md border border-neutral-300 bg-white px-4 py-2 text-center text-slate-900 transition ease-in hover:scale-[1.01] hover:border-neutral-900 hover:bg-slate-900 hover:text-slate-100 hover:shadow-lg dark:border-neutral-800"
+												>
+													Sign Up
+												</a>
+											</div>
+										) : null}
+									</div>
 								</div>
-							</div>
+							)}
 						</Popover.Panel>
 					</Transition>
 				</Popover>
