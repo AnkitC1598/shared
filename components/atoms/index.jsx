@@ -16,6 +16,7 @@ export { default as Options } from "./Options";
 export { default as ProgressBar } from "./ProgressBar";
 export { default as Search } from "./Search";
 export { default as Select } from "./Select";
+export { default as SlideOver } from "./SlideOver";
 export { default as TableData } from "./TableData";
 export { default as TableHeader } from "./TableHeader";
 export { default as Title } from "./Title";
