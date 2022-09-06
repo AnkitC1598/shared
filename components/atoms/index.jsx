@@ -11,6 +11,7 @@ export { default as GridContainer } from "./GridContainer";
 export { default as GridItem } from "./GridItem";
 export { default as Img } from "./Img";
 export { default as Input } from "./Input";
+export { default as Loader } from "./Loader";
 export { default as NavDropDownLink } from "./NavDropDownLink";
 export { default as Options } from "./Options";
 export { default as ProgressBar } from "./ProgressBar";
