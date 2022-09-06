@@ -1,22 +1,27 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/20/solid";
-import { Children, cloneElement, Fragment, useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
+import { classNames } from "../../../utils";
 import Button from "../../atoms/Button";
 
-const Modal = ({ btnLabel, btnIcon, customHandler, title, children }) => {
-	const [newModalIsOpen, setNewModalIsOpen] = useState(false);
+const Modal = ({ btnLabel, btnIcon, customHandler, children, dimensions }) => {
 	const hasCustomHandler = useMemo(
 		() =>
 			Object.prototype.toString.call(customHandler) === "[object Object]",
 		[customHandler]
 	);
-	const closeNewModal = () => {
-		setNewModalIsOpen(false);
-	};
 
-	const openNewModal = () => {
-		setNewModalIsOpen(true);
-	};
+	if (!hasCustomHandler) {
+		const [newModalIsOpen, setNewModalIsOpen] = useState(false);
+
+		const closeNewModal = () => {
+			setNewModalIsOpen(false);
+		};
+
+		const openNewModal = () => {
+			setNewModalIsOpen(true);
+		};
+	}
 	return (
 		<>
 			{!hasCustomHandler ? (
@@ -57,20 +62,13 @@ const Modal = ({ btnLabel, btnIcon, customHandler, title, children }) => {
 								leaveFrom="opacity-100 scale-100"
 								leaveTo="opacity-0 scale-95"
 							>
-								<Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-									<Dialog.Title
-										as="h3"
-										className="text-lg font-medium leading-6 text-gray-900"
-									>
-										{title}
-									</Dialog.Title>
-									{Children.map(children, (child) => {
-										return cloneElement(child, {
-											close: hasCustomHandler
-												? customHandler.close
-												: closeNewModal,
-										});
-									})}
+								<Dialog.Panel
+									className={classNames(
+										"w-full transform overflow-hidden rounded-lg bg-white text-left align-middle shadow-xl transition-all",
+										dimensions
+									)}
+								>
+									{children}
 								</Dialog.Panel>
 							</Transition.Child>
 						</div>
@@ -84,9 +82,9 @@ const Modal = ({ btnLabel, btnIcon, customHandler, title, children }) => {
 Modal.defaultProps = {
 	btnLabel: "",
 	btnIcon: <PlusIcon className="h-6 w-6" />,
-	title: "",
 	children: Fragment,
 	customAction: null,
+	dimensions: "max-w-md",
 };
 
 export default Modal;
