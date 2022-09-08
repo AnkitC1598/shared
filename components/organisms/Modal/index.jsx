@@ -4,40 +4,44 @@ import { Fragment, useMemo, useState } from "react";
 import { classNames } from "../../../utils";
 import Button from "../../atoms/Button";
 
-const Modal = ({ btnLabel, btnIcon, customHandler, children, dimensions }) => {
+const Modal = ({
+	btnLabel,
+	btnIcon,
+	customHandler,
+	children,
+	dimensions,
+	className,
+}) => {
 	const hasCustomHandler = useMemo(
 		() =>
 			Object.prototype.toString.call(customHandler) === "[object Object]",
 		[customHandler]
 	);
 
-	if (!hasCustomHandler) {
-		const [newModalIsOpen, setNewModalIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 
-		const closeNewModal = () => {
-			setNewModalIsOpen(false);
-		};
+	const close = () => {
+		setIsOpen(false);
+	};
 
-		const openNewModal = () => {
-			setNewModalIsOpen(true);
-		};
-	}
+	const open = () => {
+		setIsOpen(true);
+	};
+
 	return (
 		<>
 			{!hasCustomHandler ? (
-				<Button action={openNewModal} icon={btnIcon} label={btnLabel} />
+				<Button action={open} icon={btnIcon} label={btnLabel} />
 			) : null}
 			<Transition
 				appear
-				show={hasCustomHandler ? customHandler.isOpen : newModalIsOpen}
+				show={hasCustomHandler ? customHandler.isOpen : isOpen}
 				as={Fragment}
 			>
 				<Dialog
 					as="div"
 					className="relative z-10"
-					onClose={
-						hasCustomHandler ? customHandler.close : closeNewModal
-					}
+					onClose={hasCustomHandler ? customHandler.close : close}
 				>
 					<Transition.Child
 						as={Fragment}
@@ -65,7 +69,8 @@ const Modal = ({ btnLabel, btnIcon, customHandler, children, dimensions }) => {
 								<Dialog.Panel
 									className={classNames(
 										"w-full transform overflow-hidden rounded-lg bg-white text-left align-middle shadow-xl transition-all",
-										dimensions
+										dimensions,
+										className
 									)}
 								>
 									{children}
@@ -85,6 +90,7 @@ Modal.defaultProps = {
 	children: Fragment,
 	customAction: null,
 	dimensions: "max-w-md",
+	className: "",
 };
 
 export default Modal;
