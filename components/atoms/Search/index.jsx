@@ -2,7 +2,9 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { classNames } from "../../../utils";
 
 const Search = ({ className, placeholder, setSearch }) => {
-	if (Object.prototype.toString.call(setSearch) !== '[object Function]') return null
+	if (Object.prototype.toString.call(setSearch) !== "[object Function]")
+		return null;
+
 	return (
 		<>
 			<div
@@ -11,7 +13,7 @@ const Search = ({ className, placeholder, setSearch }) => {
 					className
 				)}
 			>
-				<div className="relative text-slate-500 focus-within:text-slate-500">
+				<div className="relative w-full text-slate-500 focus-within:text-slate-500">
 					<div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
 						<MagnifyingGlassIcon
 							className="h-5 w-5"

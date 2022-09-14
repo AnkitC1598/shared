@@ -33,11 +33,10 @@ const Toggle = ({
 			labelPosClass = "flex-col space-y-2";
 			break;
 		case "left":
-			labelPosClass = "justify-between w-full items-center";
+			labelPosClass = "justify-between items-center";
 			break;
 		case "right":
-			labelPosClass =
-				"flex-row-reverse justify-between w-full items-center";
+			labelPosClass = "flex-row-reverse justify-between items-center";
 			break;
 		case "bottom":
 			labelPosClass = "flex-col-reverse";
@@ -53,7 +52,11 @@ const Toggle = ({
 		<>
 			<Switch.Group
 				as="div"
-				className={classNames("h-full flex", labelPosClass)}
+				className={classNames(
+					"h-full flex",
+					labelPosClass,
+					label ? "w-full" : ""
+				)}
 			>
 				{label && (
 					<Switch.Label
