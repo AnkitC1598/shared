@@ -12,12 +12,14 @@ module.exports = {
 			height: {
 				navScreen: "calc(100vh - 65px)",
 				navScreenSpaced: "calc(100vh - 90px)",
+				chatTab: "calc(100vh - 172px)",
 				screen: "calc(var(--vh) * 100)",
 			},
 			minHeight: (theme) => theme("height"),
 			maxHeight: (theme) => theme("height"),
 			width: {
 				excludeSidebarIcon: "calc(100vw - 62px)",
+				sidebarIcon: "62px",
 				"8xl": "1440px",
 				"9xl": "1600px",
 			},

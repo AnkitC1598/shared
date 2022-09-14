@@ -1,4 +1,6 @@
+export { default as Avatar } from "./Avatar";
 export { default as BreadcrumbItem } from "./BreadcrumbItem";
+export { default as Button } from "./Button";
 export { default as ButtonLink } from "./ButtonLink";
 export { default as CardBody } from "./CardBody";
 export { default as CardFooter } from "./CardFooter";
@@ -15,9 +17,11 @@ export { default as Loader } from "./Loader";
 export { default as NavDropDownLink } from "./NavDropDownLink";
 export { default as Options } from "./Options";
 export { default as ProgressBar } from "./ProgressBar";
+export { default as Role } from "./Role";
 export { default as Search } from "./Search";
 export { default as Select } from "./Select";
 export { default as SlideOver } from "./SlideOver";
+export { default as Subtitle } from "./Subtitle";
 export { default as TableData } from "./TableData";
 export { default as TableHeader } from "./TableHeader";
 export { default as Title } from "./Title";
