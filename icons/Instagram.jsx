@@ -1,6 +1,6 @@
 import React from "react";
 
-const Github = ({ className }) => {
+const Instagram = ({ className }) => {
 	return (
 		<>
 			<svg
@@ -17,8 +17,8 @@ const Github = ({ className }) => {
 	);
 };
 
-Github.defaultProps = {
+Instagram.defaultProps = {
 	className: "h-5 w-5",
 };
 
-export default Github;
+export default Instagram;
