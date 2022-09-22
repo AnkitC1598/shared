@@ -57,6 +57,7 @@ const formatDate = (date) => {
 		primary: format(new Date(date), "EEE do LLL y p"),
 		secondary: format(new Date(date), "LLL d, p"),
 		tertiary: format(new Date(date), "EEE do LLL y"),
+		normal: format(new Date(date), "do MMMM y"),
 		chat: format(new Date(date), "p"),
 		...convertToObject(date),
 	};

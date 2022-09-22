@@ -2,14 +2,14 @@ import axios from "axios";
 import CookieService from "./cookie.service";
 
 const fetchWithToken = axios.create({
-	baseURL: "https://service.letsupgrade.in",
+	baseURL: "https://api.letsupgrade.net",
 	headers: {
 		"Content-Type": "application/json",
 	},
 });
 
 const fetchWithoutToken = axios.create({
-	baseURL: "https://service.letsupgrade.in",
+	baseURL: "https://api.letsupgrade.net",
 	headers: {
 		"Content-Type": "application/json",
 	},
@@ -44,7 +44,7 @@ fetchWithToken.interceptors.response.use(
 			return Promise.reject(err);
 		}
 
-		return await axiosInstance
+		return await fetchWithToken
 			.post("/v2/auth/access", {
 				refresh: CookieService.getLocalRefreshToken(),
 			})
@@ -52,9 +52,10 @@ fetchWithToken.interceptors.response.use(
 				const { token } = resp.data;
 				CookieService.updateLocalAccessToken(token);
 
-				return axiosInstance(originalConfig);
+				return fetchWithToken(originalConfig);
 			})
 			.catch((_error) => {
+				CookieService.removeTokens();
 				return Promise.reject(_error);
 			});
 

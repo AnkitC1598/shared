@@ -4,7 +4,7 @@ const cookieOptions = {
 	domain:
 		process.env.NODE_ENV === "development"
 			? "localhost"
-			: `.${window.location.hostname}`,
+			: `.letsupgrade.in`,
 	path: "/",
 };
 
@@ -44,6 +44,15 @@ const CookieService = {
 		// localStorage.removeItem("lupower_refresh");
 		Cookies.remove("lupower");
 		Cookies.remove("lupower_refresh");
+	},
+
+	getServerCookie(key, cookies) {
+		// Get name followed by anything except a semicolon
+		var cookieString = RegExp(key + "=[^;]+").exec(cookies);
+		// Return everything after the equal sign, or an empty string if the cookie name not found
+		return decodeURIComponent(
+			!!cookieString ? cookieString.toString().replace(/^[^=]+./, "") : ""
+		);
 	},
 };
 

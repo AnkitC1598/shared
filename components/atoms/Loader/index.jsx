@@ -1,7 +1,7 @@
 const Loader = ({ text }) => {
 	return (
 		<>
-			<div className="bg-white flex flex-col flex-grow space-y-4 items-center justify-center">
+			<div className="bg-transparent flex flex-col flex-grow space-y-4 items-center justify-center">
 				<svg
 					fill="none"
 					viewBox="0 0 24 24"
