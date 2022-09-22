@@ -4,7 +4,7 @@ const cookieOptions = {
 	domain:
 		process.env.NODE_ENV === "development"
 			? "localhost"
-			: `.letsupgrade.in`,
+			: `.vercel.app`,
 	path: "/",
 };
 
