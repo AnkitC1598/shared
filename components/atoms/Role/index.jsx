@@ -1,13 +1,14 @@
 import React from "react";
 import { classNames } from "../../../utils";
 
-const Role = ({ role }) => {
+const Role = ({ className, role }) => {
 	return (
 		<>
 			{["trainer", "admin", "moderator"].includes(role.toLowerCase()) ? (
 				<span
 					className={classNames(
-						"group-hover:hidden inline-flex items-center space-x-1 rounded px-2.5 py-0.5 text-xxs font-medium",
+						"inline-flex items-center space-x-1 rounded px-2.5 py-0.5 text-xxs font-medium",
+						className,
 						role === "trainer"
 							? "bg-purple-100 text-purple-800"
 							: role === "trainer"
@@ -23,6 +24,7 @@ const Role = ({ role }) => {
 };
 
 Role.defaultProps = {
+	className: "",
 	role: "member",
 };
 
