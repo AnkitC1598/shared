@@ -39,13 +39,13 @@ fetchWithToken.interceptors.response.use(
 		if (err.response?.status !== 401) {
 			return Promise.reject(err);
 		}
-		if (originalConfig.url === "/v2/auth/access") {
+		if (originalConfig.url === "/v1/auth/access") {
 			// Refresh Token was expired
 			return Promise.reject(err);
 		}
 
 		return await fetchWithToken
-			.post("/v2/auth/access", {
+			.post("/v1/auth/access", {
 				refresh: CookieService.getLocalRefreshToken(),
 			})
 			.then((resp) => {

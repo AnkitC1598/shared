@@ -10,7 +10,9 @@ const useDarkMode = () => {
 
 	useEffect(() => {
 		const classList = window.document.body.classList;
-		enabled ? classList.add("dark") : classList.remove("dark");
+		enabled
+			? classList.value !== "dark" && classList.add("dark")
+			: classList.remove("dark");
 	}, [enabled]);
 
 	return [enabled, setEnabledState];
