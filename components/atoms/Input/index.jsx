@@ -9,7 +9,7 @@ const Input = ({
 }) => {
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="relative">
+			<form onSubmit={handleSubmit} className="relative w-full">
 				<input
 					className="block w-full flex-1 rounded-md border border-neutral-300 px-4 py-2 pr-10 text-slate-900 placeholder:text-slate-400 focus:border-neutral-300 focus:outline-none focus:ring-0 dark:border-neutral-800 sm:text-sm"
 					type="text"

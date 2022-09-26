@@ -1,11 +1,11 @@
 import { createElement } from "react";
-import { classNames } from "../../../utils";
 import { Title } from "..";
+import { classNames } from "../../../utils";
 
 const GridContainer = ({ children, className, title }) => {
 	return (
 		<>
-			<Title title={title} />
+			<Title text={title} />
 			<ul
 				role="list"
 				className={classNames(

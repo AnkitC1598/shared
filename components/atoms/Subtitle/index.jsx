@@ -1,7 +1,7 @@
 import React from "react";
 import { classNames } from "../../../utils";
 
-const Subtitle = ({ text }) => {
+const Subtitle = ({ text, color }) => {
 	return (
 		<>
 			<p className={classNames("mt-1 truncate text-sm", color)}>{text}</p>

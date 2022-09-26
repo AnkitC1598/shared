@@ -1,13 +1,13 @@
 import React from "react";
 import { classNames } from "../../../utils";
 
-const Img = ({ className, alt, src }) => {
+const Img = ({ className, size, alt, src }) => {
 	return (
 		<>
 			<img
 				className={classNames(
-					"h-5 w-5 flex-shrink-0 rounded-md bg-slate-300",
-					className
+					"flex-shrink-0 rounded-md bg-slate-300",
+					className,
 				)}
 				src={src}
 				alt={alt}
@@ -19,7 +19,7 @@ const Img = ({ className, alt, src }) => {
 Img.defaultProps = {
 	src: "https://via.placeholder.com/150",
 	alt: "",
-	className: "",
+	className: "h-5",
 };
 
 export default Img;
