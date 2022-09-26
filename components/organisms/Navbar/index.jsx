@@ -1,11 +1,9 @@
 import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BoltIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { BoltSlashIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { Fragment } from "react";
-import { Toggle } from "../../atoms";
 import NavDropDown from "../../molecules/NavDropDown";
-import { BoltSlashIcon } from "@headlessui/react/24/solid";
-import { BoltIcon } from "@headlessui/react/24/outlined";
 
 const Navbar = ({
 	dispatchToApp,
