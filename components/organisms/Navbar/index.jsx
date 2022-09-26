@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { Toggle } from "../../atoms";
 import NavDropDown from "../../molecules/NavDropDown";
+import { BoltSlashIcon } from "@headlessui/react/24/solid";
+import { BoltIcon } from "@headlessui/react/24/outlined";
 
 const Navbar = ({
 	dispatchToApp,
@@ -50,25 +52,20 @@ const Navbar = ({
 										needFocusMode
 									) !== "[object Boolean]" &&
 									needFocusMode ? (
-										<Toggle
-											id="focusMode"
-											trueState={{
-												bg: "bg-lu-500",
-												icon: () => <></>,
-												iconColor: "text-gray-900",
-											}}
-											falseState={{
-												bg: "bg-slate-200",
-												icon: () => <></>,
-												iconColor: "text-gray-900",
-											}}
-											value={focusModeEnabled}
-											onChange={() =>
+										<button
+											className="inline-flex items-center p-2 text-sm font-medium text-gray-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md focus:outline-none focus:ring-0"
+											onClick={() =>
 												dispatchToApp({
 													type: "TOGGLE_FOCUS_MODE",
 												})
 											}
-										/>
+										>
+											{focusModeEnabled ? (
+												<BoltSlashIcon className="h-5 w-5" />
+											) : (
+												<BoltIcon className="h-5 w-5" />
+											)}
+										</button>
 									) : null}
 									<div className="flex items-center md:hidden">
 										<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-0 dark:bg-neutral-900">

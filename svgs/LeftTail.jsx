@@ -1,9 +1,9 @@
 import React from "react";
 
-const LeftTail = () => {
+const LeftTail = ({ className }) => {
 	return (
 		<>
-			<svg viewBox="0 0 8 13" width="8" height="13">
+			<svg viewBox="0 0 8 13" width="8" height="13" className={className}>
 				<path
 					opacity=".13"
 					fill="#0000000"
@@ -16,6 +16,10 @@ const LeftTail = () => {
 			</svg>
 		</>
 	);
+};
+
+LeftTail.defaultProps = {
+	className: "",
 };
 
 export default LeftTail;
