@@ -4,7 +4,7 @@ const cookieOptions = {
 	domain:
 		process.env.NODE_ENV === "development"
 			? "localhost"
-			: `.vercel.app`,
+			: "lisaclass.vercel.app",
 	path: "/",
 };
 
