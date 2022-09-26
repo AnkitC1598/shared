@@ -10,7 +10,7 @@ const ButtonLink = ({ to, bgColor, color, icon, label, weight }) => {
 			<Link href={`${path === "/" ? "" : path}${to}`}>
 				<a
 					className={classNames(
-						"rounded-md flex items-center space-x-1 px-4 py-2 text-center text-sm shadow-sm focus:outline-none focus:ring-0",
+						"rounded-md w-full flex items-center justify-center space-x-1 px-4 py-2 text-center text-sm shadow-sm focus:outline-none focus:ring-0",
 						bgColor,
 						color,
 						weight
