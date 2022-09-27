@@ -1,10 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchUser } from "../../queries";
 
-const useGetSelf = ({ username }) => {
+const useGetUser = ({ username }) => {
 	const { isLoading, isError, data, error } = useQuery(
-		["selfDetails", username],
-		fetchUser
+		[`user-${username}`, username],
+		fetchUser,
+		{
+			enabled: !!username,
+			retry: false,
+		}
 	);
 
 	return {
@@ -15,4 +19,4 @@ const useGetSelf = ({ username }) => {
 	};
 };
 
-export default useGetSelf;
+export default useGetUser;
