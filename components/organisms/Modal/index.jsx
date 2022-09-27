@@ -68,7 +68,7 @@ const Modal = ({
 							>
 								<Dialog.Panel
 									className={classNames(
-										"w-full transform overflow-hidden rounded-lg bg-white text-left align-middle shadow-xl transition-all",
+										"w-full transform overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-900 text-left align-middle shadow-xl transition-all",
 										dimensions,
 										className
 									)}
