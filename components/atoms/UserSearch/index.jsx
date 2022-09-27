@@ -23,22 +23,22 @@ const UserSearch = ({ selected, setSelected, placeholder }) => {
 	return (
 		<Combobox value={selected} onChange={setSelected}>
 			<div className="relative mt-1 w-full">
-				<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+				<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-900 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
 					<Combobox.Input
-						className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-						displayValue={(selectedValue) => selectedValue?.name}
+						className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0 bg-neutral-50 dark:bg-neutral-900 text-slate-900 dark:text-slate-200"
+						// displayValue={(selectedValue) => selectedValue?.name}
 						onChange={(event) => setQuery(event.target.value)}
 						autoComplete="off"
 						placeholder={placeholder}
 					/>
-					<Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+					{/* <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
 						<ChevronUpDownIcon
 							className="h-5 w-5 text-gray-400"
 							aria-hidden="true"
 						/>
-					</Combobox.Button>
+					</Combobox.Button> */}
 				</div>
-				<span className='absolute text-xxs'>* Username only</span>
+				<span className="absolute text-xxs">* Username only</span>
 				<Transition
 					as={Fragment}
 					leave="transition ease-in duration-100"
@@ -46,14 +46,14 @@ const UserSearch = ({ selected, setSelected, placeholder }) => {
 					leaveTo="opacity-0"
 					afterLeave={() => setQuery("")}
 				>
-					<Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white p-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+					<Combobox.Options className="absolute mt-0.5 max-h-60 w-full overflow-auto rounded-md bg-neutral-50 dark:bg-neutral-900 p-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10 text-slate-900 dark:text-slate-200 border border-neutral-200 dark:border-neutral-800">
 						{isLoading && query !== "" ? (
 							<Loader />
 						) : Object.prototype.toString.call(searchResult) ===
 								"[object Undefined]" ||
 						  Object.prototype.toString.call(searchResult) ===
 								"[object Null]" ? (
-							<div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+							<div className="relative cursor-default select-none py-2 px-4">
 								Nothing found.
 							</div>
 						) : (
@@ -61,9 +61,7 @@ const UserSearch = ({ selected, setSelected, placeholder }) => {
 								className={({ active }) =>
 									classNames(
 										"relative cursor-default select-none py-2 px-4 rounded-md",
-										active
-											? "bg-purple-500 text-slate-200"
-											: "text-gray-900"
+										active ? "bg-purple-500" : ""
 									)
 								}
 								value={searchResult}
