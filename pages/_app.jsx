@@ -1,7 +1,10 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Head from "next/head";
 import { Router } from "next/router";
 import nprogress from "nprogress";
 import { useEffect } from "react";
+import queryClient from "../services/queryClient";
 import "../styles/globals.css";
 
 nprogress.configure({
@@ -28,11 +31,19 @@ const App = ({ Component, pageProps }) => {
 
 	return (
 		<>
-			<Head>
-				<title>Typography</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<Component {...pageProps} />
+			<QueryClientProvider client={queryClient}>
+				<Head>
+					<title>Typography</title>
+					<link rel="icon" href="/favicon.ico" />
+				</Head>
+				<Component {...pageProps} />
+				{process.env.NODE_ENV === "development" && (
+					<ReactQueryDevtools
+						initialIsOpen={true}
+						position="top-right"
+					/>
+				)}
+			</QueryClientProvider>
 		</>
 	);
 };

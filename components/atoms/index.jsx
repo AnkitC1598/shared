@@ -27,3 +27,4 @@ export { default as TableHeader } from "./TableHeader";
 export { default as Title } from "./Title";
 export { default as Toggle } from "./Toggle";
 export { default as Tooltip } from "./Tooltip";
+export { default as UserSearch } from "./UserSearch";

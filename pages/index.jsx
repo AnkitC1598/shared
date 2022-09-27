@@ -16,6 +16,7 @@ import {
 	Subtitle,
 	Title,
 	Toggle,
+	UserSearch,
 } from "../components/atoms";
 
 const Typography = () => {
@@ -132,6 +133,12 @@ const Typography = () => {
 						onChange={() => setToggleState((prev) => !prev)}
 					/>
 					<div>Toggle</div>
+				</div>
+				<div className="flex flex-col items-center justify-center p-2 hover:shadow-lg rounded-md border space-y-2">
+					<span className="flex flex-1 items-center w-full">
+						<UserSearch className="w-full" />
+					</span>
+					<div>Search</div>
 				</div>
 			</div>
 		</div>
