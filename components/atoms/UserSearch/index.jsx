@@ -1,11 +1,11 @@
 import { Combobox, Transition } from "@headlessui/react";
-import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useQuery } from "@tanstack/react-query";
 import { Fragment, useState } from "react";
 import { Loader } from "..";
 import useDebounce from "../../../hooks/useDebounce";
 import { fetchUser } from "../../../queries";
 import { classNames } from "../../../utils";
+import { Avatar } from "..";
 
 const UserSearch = ({ selected, setSelected, placeholder }) => {
 	const [query, setQuery] = useState("");
@@ -66,20 +66,20 @@ const UserSearch = ({ selected, setSelected, placeholder }) => {
 								}
 								value={searchResult}
 							>
-								{({ selected }) => (
-									<>
-										<span
-											className={classNames(
-												"block truncate",
-												selected
-													? "font-medium"
-													: "font-normal"
-											)}
-										>
+								<div className="flex items-center space-x-2">
+									<Avatar
+										imgUrl={searchResult.profileImage}
+										size="h-10"
+									/>
+									<div className="flex flex-col">
+										<span className="line-clamp-1">
 											{searchResult.name}
 										</span>
-									</>
-								)}
+										<span className="text-xs line-clamp-1">
+											@{searchResult.username}
+										</span>
+									</div>
+								</div>
 							</Combobox.Option>
 						)}
 					</Combobox.Options>
