@@ -2,18 +2,28 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { classNames } from "../../../utils";
 
-const ButtonLink = ({ to, bgColor, color, icon, label, weight }) => {
+const ButtonLink = ({
+	to,
+	bgColor,
+	color,
+	icon,
+	label,
+	weight,
+	width,
+	withCurrent,
+}) => {
 	const { asPath: path } = useRouter();
 
 	return (
 		<>
-			<Link href={`${path === "/" ? "" : path}${to}`}>
+			<Link href={withCurrent ? `${path === "/" ? "" : path}${to}` : to}>
 				<a
 					className={classNames(
-						"rounded-md w-full flex items-center justify-center space-x-1 px-4 py-2 text-center text-sm shadow-sm focus:outline-none focus:ring-0",
+						"rounded-md flex items-center justify-center space-x-1 px-4 py-2 text-center text-sm shadow-sm focus:outline-none focus:ring-0",
 						bgColor,
 						color,
-						weight
+						weight,
+						width
 					)}
 				>
 					{icon ? icon : null}
@@ -32,6 +42,8 @@ ButtonLink.defaultProps = {
 	icon: null,
 	label: "Start",
 	weight: "font-semibold",
+	width: "w-full",
+	withCurrent: true,
 };
 
 export default ButtonLink;
