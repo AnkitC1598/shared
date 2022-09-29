@@ -1,10 +1,7 @@
 import Cookies from "js-cookie";
 
 const cookieOptions = {
-	domain:
-		process.env.NODE_ENV === "development"
-			? "localhost"
-			: "lisaclass.vercel.app",
+	domain: process.browser ? window.location.hostname : "localhost",
 	path: "/",
 };
 
@@ -42,8 +39,8 @@ const CookieService = {
 	removeTokens() {
 		// localStorage.removeItem("lupower");
 		// localStorage.removeItem("lupower_refresh");
-		Cookies.remove("lupower");
-		Cookies.remove("lupower_refresh");
+		Cookies.remove("lupower", cookieOptions);
+		Cookies.remove("lupower_refresh", cookieOptions);
 	},
 
 	getServerCookie(key, cookies) {

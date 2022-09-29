@@ -8,7 +8,7 @@ const CardTitle = ({ title, tooltip }) => {
 		<>
 			<h3
 				className={classNames(
-					"text-lg font-medium text-slate-900 dark:text-slate-200",
+					"font-medium text-slate-900 dark:text-slate-200",
 					tooltip && "group relative flex !overflow-visible"
 				)}
 			>
