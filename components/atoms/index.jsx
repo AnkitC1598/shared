@@ -24,6 +24,7 @@ export { default as SlideOver } from "./SlideOver";
 export { default as Subtitle } from "./Subtitle";
 export { default as TableData } from "./TableData";
 export { default as TableHeader } from "./TableHeader";
+export { default as Tag } from "./Tag";
 export { default as Title } from "./Title";
 export { default as Toggle } from "./Toggle";
 export { default as Tooltip } from "./Tooltip";

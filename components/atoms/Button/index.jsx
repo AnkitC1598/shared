@@ -33,7 +33,7 @@ const Button = ({
 Button.defaultProps = {
 	action: () => false,
 	bgColor:
-		"bg-neutral-800 enabled:hover:bg-purple-600 dark:bg-gray-100 dark:enabled:hover:bg-purple-200",
+		"bg-neutral-800 enabled:hover:bg-purple-600 dark:bg-neutral-100 dark:enabled:hover:bg-purple-200",
 	textColor: "dark:text-slate-900 text-slate-200",
 	icon: null,
 	label: "",
