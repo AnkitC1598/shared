@@ -1,6 +1,6 @@
 import { classNames } from "../../../utils";
 
-const Tooltip = ({ position = "top", label }) => {
+const Tooltip = ({ position = "top", label, bgColor }) => {
 	let positionClass;
 	switch (position) {
 		case "top":
@@ -21,13 +21,20 @@ const Tooltip = ({ position = "top", label }) => {
 	return (
 		<span
 			className={classNames(
-				"invisible absolute w-max rounded-md bg-neutral-500 px-2 py-1 text-xxs font-normal capitalize text-white group-hover:visible",
-				positionClass
+				"invisible absolute w-max rounded-md px-2 py-1 text-xxs font-normal capitalize text-white group-hover:visible",
+				positionClass,
+				bgColor
 			)}
 		>
 			{label}
 		</span>
 	);
+};
+
+Tooltip.defaultProps = {
+	position: "top",
+	label: "Tooltip",
+	bgColor: "bg-neutral-500",
 };
 
 export default Tooltip;

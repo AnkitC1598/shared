@@ -1,8 +1,9 @@
 import { Menu } from "@headlessui/react";
 import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, BoltIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
 	ArrowRightOnRectangleIcon,
+	BoltIcon,
 	BoltSlashIcon,
 	ChevronDownIcon,
 } from "@heroicons/react/24/solid";
@@ -11,8 +12,39 @@ import { useRouter } from "next/router";
 import { Fragment } from "react";
 import CookieService from "../../../services/cookie.service";
 import { classNames } from "../../../utils";
-import { Avatar, ButtonLink } from "../../atoms";
+import { Avatar, ButtonLink, Tooltip } from "../../atoms";
 import NavDropDown from "../../molecules/NavDropDown";
+
+const FocusMode = ({ dispatch, focusModeEnabled, needFocusMode }) => {
+	return Object.prototype.toString.call(dispatch) === "[object Function]" &&
+		Object.prototype.toString.call(focusModeEnabled) ===
+			"[object Boolean]" &&
+		Object.prototype.toString.call(needFocusMode) === "[object Boolean]" &&
+		needFocusMode ? (
+		<button
+			className={classNames(
+				"group relative inline-flex items-center p-2 text-sm font-medium text-gray-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md focus:outline-none focus:ring-0",
+				focusModeEnabled ? "bg-neutral-100 dark:bg-neutral-800" : ""
+			)}
+			onClick={() =>
+				dispatch({
+					type: "TOGGLE_FOCUS_MODE",
+				})
+			}
+		>
+			{focusModeEnabled ? (
+				<BoltSlashIcon className="h-5 w-5 text-yellow-500" />
+			) : (
+				<BoltIcon className="h-5 w-5 text-yellow-500" />
+			)}
+			<Tooltip
+				position="bottom"
+				label="Focus Mode"
+				bgColor="bg-neutral-500 dark:bg-neutral-800"
+			/>
+		</button>
+	) : null;
+};
 
 const Navbar = ({
 	dispatch,
@@ -64,33 +96,13 @@ const Navbar = ({
 										/>
 									</a>
 								</Link>
-								<span className="flex space-x-4">
-									{Object.prototype.toString.call(
-										dispatch
-									) === "[object Function]" &&
-									Object.prototype.toString.call(
-										focusModeEnabled
-									) === "[object Boolean]" &&
-									Object.prototype.toString.call(
-										needFocusMode
-									) !== "[object Boolean]" &&
-									needFocusMode ? (
-										<button
-											className="inline-flex items-center p-2 text-sm font-medium text-gray-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md focus:outline-none focus:ring-0"
-											onClick={() =>
-												dispatch({
-													type: "TOGGLE_FOCUS_MODE",
-												})
-											}
-										>
-											{focusModeEnabled ? (
-												<BoltSlashIcon className="h-5 w-5" />
-											) : (
-												<BoltIcon className="h-5 w-5" />
-											)}
-										</button>
-									) : null}
-									<div className="flex items-center md:hidden">
+								<span className=" md:hidden flex space-x-4">
+									<FocusMode
+										dispatch={dispatch}
+										focusModeEnabled={focusModeEnabled}
+										needFocusMode={needFocusMode}
+									/>
+									<div className="flex items-center">
 										<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-0 dark:bg-neutral-900">
 											<span className="sr-only">
 												Open main menu
@@ -136,6 +148,11 @@ const Navbar = ({
 											)
 									  )
 									: null}
+								<FocusMode
+									dispatch={dispatch}
+									focusModeEnabled={focusModeEnabled}
+									needFocusMode={needFocusMode}
+								/>
 								{Object.prototype.toString.call(withAuth) ===
 									"[object Boolean]" && withAuth ? (
 									user ? (
@@ -144,7 +161,7 @@ const Navbar = ({
 											className="relative inline-block text-left"
 										>
 											<div>
-												<Menu.Button className="text-white bg-itm border-0 focus:outline-none flex items-center cursor-pointer justify-center h-10 space-x-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md">
+												<Menu.Button className="text-slate-900 dark:text-slate-200 bg-itm border-0 focus:outline-none flex items-center cursor-pointer justify-center h-10 space-x-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md">
 													<Avatar
 														imgUrl={
 															user.profileImage
@@ -155,7 +172,7 @@ const Navbar = ({
 														{user.name}
 													</div>
 													<ChevronDownIcon
-														className="w-3 h-3 text-slate-900 dark:text-slate-200"
+														className="w-3 h-3"
 														aria-hidden="true"
 													/>
 												</Menu.Button>
@@ -169,8 +186,8 @@ const Navbar = ({
 												leaveFrom="transform opacity-100 scale-100"
 												leaveTo="transform opacity-0 scale-95"
 											>
-												<Menu.Items className="absolute right-0 w-24 mt-2 origin-top-right bg-neutral-200 dark:bg-neutral-800 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-													<div className="px-1 py-1 ">
+												<Menu.Items className="absolute right-0 w-24 mt-2 origin-top-right bg-neutral-50 dark:bg-neutral-800 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+													<div className="p-1">
 														<Menu.Item>
 															{({ active }) => (
 																<button
@@ -301,7 +318,7 @@ const Navbar = ({
 										) === "[object Boolean]" && withAuth ? (
 											user ? (
 												<div
-													className="text-white bg-itm border-0 focus:outline-none flex items-center cursor-pointer justify-center h-10 space-x-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md"
+													className="text-slate-900 dark:text-slate-200 bg-itm border-0 focus:outline-none flex items-center cursor-pointer justify-center h-10 space-x-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md"
 													onClick={() => {
 														logout();
 														close();
