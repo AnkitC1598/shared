@@ -47,7 +47,7 @@ const ProgressBar = ({
 							<div
 								key={p}
 								className={classNames(
-									"flex items-center justify-center p-0.5 text-xs font-medium leading-none",
+									"flex items-center justify-center text-xs font-medium leading-none",
 									trackHeight,
 									idx === 0 && "rounded-l-md",
 									idx === progress.length - 1
@@ -57,7 +57,7 @@ const ProgressBar = ({
 								)}
 								style={{ width: `${p}%` }}
 							>
-								{showValue ? (
+								{showValue && progress > 0 ? (
 									<span className={classNames(textColor)}>
 										{p}%
 									</span>

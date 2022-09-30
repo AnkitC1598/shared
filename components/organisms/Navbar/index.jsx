@@ -155,65 +155,7 @@ const Navbar = ({
 								/>
 								{Object.prototype.toString.call(withAuth) ===
 									"[object Boolean]" && withAuth ? (
-									user ? (
-										<Menu
-											as="div"
-											className="relative inline-block text-left"
-										>
-											<div>
-												<Menu.Button className="text-slate-900 dark:text-slate-200 bg-itm border-0 focus:outline-none flex items-center cursor-pointer justify-center h-10 space-x-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md">
-													<Avatar
-														imgUrl={
-															user.profileImage
-														}
-														size="h-6"
-													/>
-													<div className="text-base">
-														{user.name}
-													</div>
-													<ChevronDownIcon
-														className="w-3 h-3"
-														aria-hidden="true"
-													/>
-												</Menu.Button>
-											</div>
-											<Transition
-												as={Fragment}
-												enter="transition ease-out duration-100"
-												enterFrom="transform opacity-0 scale-95"
-												enterTo="transform opacity-100 scale-100"
-												leave="transition ease-in duration-75"
-												leaveFrom="transform opacity-100 scale-100"
-												leaveTo="transform opacity-0 scale-95"
-											>
-												<Menu.Items className="absolute right-0 w-24 mt-2 origin-top-right bg-neutral-50 dark:bg-neutral-800 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-													<div className="p-1">
-														<Menu.Item>
-															{({ active }) => (
-																<button
-																	className={classNames(
-																		"flex rounded-md items-center w-full px-2 py-2 text-sm",
-																		active
-																			? "bg-purple-500 text-slate-200"
-																			: "text-slate-900 dark:text-slate-200"
-																	)}
-																	onClick={
-																		logout
-																	}
-																>
-																	<ArrowRightOnRectangleIcon
-																		className="w-5 h-5 mr-2"
-																		aria-hidden="true"
-																	/>
-																	Logout
-																</button>
-															)}
-														</Menu.Item>
-													</div>
-												</Menu.Items>
-											</Transition>
-										</Menu>
-									) : (
+									user ? null : (
 										<span className="flex space-x-2 items-center">
 											{router.asPath !== "/login" ? (
 												<ButtonLink
@@ -316,25 +258,7 @@ const Navbar = ({
 										{Object.prototype.toString.call(
 											withAuth
 										) === "[object Boolean]" && withAuth ? (
-											user ? (
-												<div
-													className="text-slate-900 dark:text-slate-200 bg-itm border-0 focus:outline-none flex items-center cursor-pointer justify-center h-10 space-x-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md"
-													onClick={() => {
-														logout();
-														close();
-													}}
-												>
-													<Avatar
-														imgUrl={
-															user.profileImage
-														}
-														size="h-6"
-													/>
-													<div className="text-base">
-														{user.name}
-													</div>
-												</div>
-											) : (
+											user ? null : (
 												<span
 													className="flex space-x-2 justify-evenly"
 													onClick={close}
