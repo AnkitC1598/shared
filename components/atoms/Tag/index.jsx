@@ -5,7 +5,7 @@ const Tag = ({ tag, bgColor, rounded, px, py, font }) => {
 	return (
 		<>
 			<span
-				class={classNames(
+				className={classNames(
 					"inline-flex items-center font-medium text-slate-900 dark:text-slate-200",
 					bgColor,
 					rounded,

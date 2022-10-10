@@ -2,7 +2,12 @@ import { HomeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { BreadcrumbItem } from "../../atoms";
 
-const Breadcrumb = ({ pages }) => {
+const Breadcrumb = ({ breadcrumbs }) => {
+	if (Object.prototype.toString.call(breadcrumbs) !== "[object Array]")
+		throw new Error("Breadcrumb: breadcrumbs must be an array");
+
+	if (breadcrumbs.length === 0) return null;
+
 	return (
 		<>
 			<nav className="flex" aria-label="Breadcrumb">
@@ -20,12 +25,12 @@ const Breadcrumb = ({ pages }) => {
 						</a>
 					</Link>
 					<span className="flex items-center space-x-4 overflow-x-scroll scrollbar-hide">
-						{pages?.map((page) => (
+						{breadcrumbs?.map((breadcrumb) => (
 							<BreadcrumbItem
-								key={page.name}
-								label={page.label}
-								name={page.name}
-								to={page.link}
+								key={breadcrumb.name}
+								label={breadcrumb.label}
+								name={breadcrumb.name}
+								to={breadcrumb.link}
 							/>
 						))}
 					</span>
@@ -36,7 +41,7 @@ const Breadcrumb = ({ pages }) => {
 };
 
 Breadcrumb.defaultProps = {
-	pages: [],
+	breadcrumbs: [],
 };
 
 export default Breadcrumb;
