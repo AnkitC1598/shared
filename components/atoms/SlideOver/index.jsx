@@ -7,7 +7,7 @@ const SlideOver = ({ isOpen, children, close, title }) => {
 	return (
 		<>
 			<Transition.Root show={isOpen} as={Fragment}>
-				<Dialog as="div" className="relative z-10" onClose={close}>
+				<Dialog as="div" className="relative z-10" onClose={isOpen ? close : () => false}>
 					<div className="fixed inset-0" />
 
 					<div className="fixed inset-0 overflow-hidden">
@@ -23,9 +23,9 @@ const SlideOver = ({ isOpen, children, close, title }) => {
 									leaveTo="translate-x-full"
 								>
 									<Dialog.Panel className="pointer-events-auto w-screen max-w-2xl">
-										<div className="flex h-full flex-col overflow-y-scroll scrollbar-hide bg-white py-6 shadow-xl">
-											<div className="px-4 sm:px-6">
-												<div className="flex items-start justify-between">
+										<div className="flex h-full flex-col overflow-y-scroll scrollbar-hide bg-white shadow-xl divide-y">
+											<div className="px-4 sm:px-6 h-16 flex items-center">
+												<div className="flex items-start justify-between w-full">
 													<Dialog.Title className="text-lg font-medium text-gray-900">
 														{title}
 													</Dialog.Title>
@@ -46,7 +46,7 @@ const SlideOver = ({ isOpen, children, close, title }) => {
 													</div>
 												</div>
 											</div>
-											<div className="relative mt-6 flex-1 px-4 sm:px-6">
+											<div className="relative flex-1 px-4 sm:px-6">
 												{children}
 											</div>
 										</div>

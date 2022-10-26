@@ -5,32 +5,32 @@ const TableData = ({ data, isIterable, isLink, isStatus }) => {
 	return (
 		<td className="whitespace-nowrap px-6 py-2 text-center">
 			{Object.prototype.toString.call(data) === "[object Array]" &&
-			Object.prototype.toString.call(isIterable) === "[object Boolean]" &&
-			isIterable ? (
+				Object.prototype.toString.call(isIterable) === "[object Boolean]" &&
+				isIterable ? (
 				<div className="m-auto flex cursor-pointer flex-wrap items-center justify-start gap-2 text-gray-900">
 					{data.length
 						? data.map((d) => (
-								<div
-									key={d.label}
-									className={classNames(
-										"rounded-md bg-yellow-300 px-3 text-xs leading-7 text-black",
-										d.className
-									)}
-								>
-									{d.label}
-								</div>
-						  ))
+							<div
+								key={d.label}
+								className={classNames(
+									"rounded-md bg-yellow-300 px-3 text-xs leading-7 text-black",
+									d.className
+								)}
+							>
+								{d.label}
+							</div>
+						))
 						: null}
 				</div>
 			) : Object.prototype.toString.call(data) === "[object Object]" &&
-			  Object.prototype.toString.call(isLink) === "[object Boolean]" &&
-			  isLink ? (
+				Object.prototype.toString.call(isLink) === "[object Boolean]" &&
+				isLink ? (
 				<Link href={data.href}>
 					<a className="text-gray-900 hover:text-lu">{data.label}</a>
 				</Link>
 			) : Object.prototype.toString.call(data) === "[object Object]" &&
-			  Object.prototype.toString.call(isStatus) === "[object Boolean]" &&
-			  isStatus ? (
+				Object.prototype.toString.call(isStatus) === "[object Boolean]" &&
+				isStatus ? (
 				<div className="cursor-pointer text-gray-900">
 					<span
 						className={classNames(
@@ -42,7 +42,7 @@ const TableData = ({ data, isIterable, isLink, isStatus }) => {
 					</span>
 				</div>
 			) : Object.prototype.toString.call(data) === "[object String]" ||
-			  Object.prototype.toString.call(data) === "[object Number]" ? (
+				Object.prototype.toString.call(data) === "[object Number]" ? (
 				<div className="text-gray-900">{data}</div>
 			) : null}
 		</td>

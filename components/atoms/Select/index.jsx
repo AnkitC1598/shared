@@ -1,6 +1,6 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/20/solid";
-import { Fragment } from "react";
+import { Fragment, useMemo } from "react";
 import { classNames } from "../../../utils";
 
 const Select = ({
@@ -13,17 +13,9 @@ const Select = ({
 	setSelected,
 	removeSelected,
 }) => {
-	// const [query, setQuery] = useState("");
+	if (Object.prototype.toString.call(selected) === "[object String]")
+		selected = useMemo(() => options.find(optionsEle => optionsEle.value === selected) || null, [options, selected]);
 
-	// const filteredOptions =
-	// 	query === ""
-	// 		? options
-	// 		: options.filter((option) =>
-	// 				option.label
-	// 					.toLowerCase()
-	// 					.replace(/\s+/g, "")
-	// 					.includes(query.toLowerCase().replace(/\s+/g, ""))
-	// 		  );
 	return (
 		<>
 			<Listbox
@@ -55,7 +47,7 @@ const Select = ({
 														<XMarkIcon
 															className="w-3 h-3 cursor-pointer"
 															onClick={(e) =>
-																removeSelected({key: id, value: s})
+																removeSelected({ key: id, value: s })
 															}
 														/>
 													</span>
@@ -135,6 +127,12 @@ Select.defaultProps = {
 	options: [],
 	multiple: false,
 	placeholder: "Select an option",
+	label: 'Select',
+	id: 'select',
+	selected: null,
+	multiple: false,
+	setSelected: () => false,
+	removeSelected: () => false,
 };
 
 export default Select;

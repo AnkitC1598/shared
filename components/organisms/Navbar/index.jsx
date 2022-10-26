@@ -1,18 +1,15 @@
-import { Menu } from "@headlessui/react";
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
-	ArrowRightOnRectangleIcon,
 	BoltIcon,
-	BoltSlashIcon,
-	ChevronDownIcon,
+	BoltSlashIcon
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import CookieService from "../../../services/cookie.service";
 import { classNames } from "../../../utils";
-import { Avatar, ButtonLink, Tooltip } from "../../atoms";
+import { ButtonLink, Tooltip } from "../../atoms";
 import NavDropDown from "../../molecules/NavDropDown";
 
 const FocusMode = ({ dispatch, focusModeEnabled, needFocusMode }) => {
