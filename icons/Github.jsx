@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Github = ({ className }) => {
 	return (
@@ -14,11 +14,11 @@ const Github = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 Github.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default Github;
+export default Github

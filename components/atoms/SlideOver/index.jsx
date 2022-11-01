@@ -1,13 +1,20 @@
-import { Dialog } from "@headlessui/react";
-import { Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import React, { Fragment } from "react";
+import { Dialog } from "@headlessui/react"
+import { Transition } from "@headlessui/react"
+import { XMarkIcon } from "@heroicons/react/24/solid"
+import React, { Fragment } from "react"
 
 const SlideOver = ({ isOpen, children, close, title }) => {
 	return (
 		<>
-			<Transition.Root show={isOpen} as={Fragment}>
-				<Dialog as="div" className="relative z-10" onClose={isOpen ? close : () => false}>
+			<Transition.Root
+				show={isOpen}
+				as={Fragment}
+			>
+				<Dialog
+					as="div"
+					className="relative z-10"
+					onClose={isOpen ? close : () => false}
+				>
 					<div className="fixed inset-0" />
 
 					<div className="fixed inset-0 overflow-hidden">
@@ -58,7 +65,7 @@ const SlideOver = ({ isOpen, children, close, title }) => {
 				</Dialog>
 			</Transition.Root>
 		</>
-	);
-};
+	)
+}
 
-export default SlideOver;
+export default SlideOver

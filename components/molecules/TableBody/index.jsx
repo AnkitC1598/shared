@@ -1,16 +1,16 @@
-import { useMemo } from "react";
-import { TableData } from "../../atoms";
+import { useMemo } from "react"
+import { TableData } from "../../atoms"
 
 const TableBody = ({ rows, search, sort, sortBy }) => {
-	if (Object.prototype.toString.call(rows) !== "[object Array]") return null;
+	if (Object.prototype.toString.call(rows) !== "[object Array]") return null
 
 	rows = useMemo(() => {
-		let tempRows = rows;
-		if (tempRows.length < 1) return tempRows;
+		let tempRows = rows
+		if (tempRows.length < 1) return tempRows
 		if (search.length)
-			tempRows = tempRows.filter((tempRow) =>
+			tempRows = tempRows.filter(tempRow =>
 				tempRow[1].data.toLowerCase().includes(search)
-			);
+			)
 		if (sort)
 			tempRows = tempRows.sort((a, b) =>
 				sortBy.by === "asc"
@@ -26,9 +26,9 @@ const TableBody = ({ rows, search, sort, sortBy }) => {
 						? 1
 						: 0
 					: 0
-			);
-		return tempRows;
-	}, [rows, search, sortBy]);
+			)
+		return tempRows
+	}, [rows, search, sortBy])
 
 	return (
 		<tbody className="divide-y divide-gray-200 bg-white">
@@ -47,14 +47,14 @@ const TableBody = ({ rows, search, sort, sortBy }) => {
 				</tr>
 			))}
 		</tbody>
-	);
-};
+	)
+}
 
 TableBody.defaultProps = {
 	rows: [],
 	search: "",
 	sort: false,
 	sortBy: {},
-};
+}
 
-export default TableBody;
+export default TableBody

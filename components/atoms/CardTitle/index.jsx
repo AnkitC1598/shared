@@ -1,8 +1,8 @@
-import { classNames } from "../../../utils";
-import { Tooltip } from "..";
+import { classNames } from "../../../utils"
+import { Tooltip } from ".."
 
 const CardTitle = ({ title, tooltip }) => {
-	if (!title) return null;
+	if (!title) return null
 
 	return (
 		<>
@@ -13,15 +13,20 @@ const CardTitle = ({ title, tooltip }) => {
 				)}
 			>
 				<span className="line-clamp-2">{title}</span>
-				{tooltip ? <Tooltip position="top" label={tooltip} /> : null}
+				{tooltip ? (
+					<Tooltip
+						position="top"
+						label={tooltip}
+					/>
+				) : null}
 			</h3>
 		</>
-	);
-};
+	)
+}
 
 CardTitle.defaultProps = {
 	title: null,
 	tooltip: null,
-};
+}
 
-export default CardTitle;
+export default CardTitle

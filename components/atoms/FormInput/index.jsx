@@ -1,4 +1,4 @@
-import { classNames } from "../../../utils";
+import { classNames } from "../../../utils"
 
 const FormInput = ({
 	showLabel,
@@ -16,7 +16,10 @@ const FormInput = ({
 	return (
 		<>
 			{showLabel ? (
-				<label htmlFor={id} className="block text-sm font-medium">
+				<label
+					htmlFor={id}
+					className="block text-sm font-medium"
+				>
 					<span>{label}</span>{" "}
 					{required ? <span className="text-red-500">*</span> : null}
 				</label>
@@ -36,8 +39,8 @@ const FormInput = ({
 				)}
 			/>
 		</>
-	);
-};
+	)
+}
 
 FormInput.defaultProps = {
 	showLabel: true,
@@ -50,7 +53,7 @@ FormInput.defaultProps = {
 	className: "",
 	placeholder: null,
 	required: false,
-	defaultValue: '',
-};
+	defaultValue: "",
+}
 
-export default FormInput;
+export default FormInput

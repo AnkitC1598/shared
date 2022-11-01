@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Medal = ({ className }) => {
 	return (
@@ -15,11 +15,11 @@ const Medal = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 Medal.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default Medal;
+export default Medal

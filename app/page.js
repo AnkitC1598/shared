@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client"
+
+import { useState } from "react"
 import {
 	Avatar,
 	Button,
@@ -17,10 +19,10 @@ import {
 	Title,
 	Toggle,
 	UserSearch,
-} from "../components/atoms";
+} from "../components/atoms"
 
 const Typography = () => {
-	const [toggleState, setToggleState] = useState(false);
+	const [toggleState, setToggleState] = useState(false)
 
 	return (
 		<div className="flex h-screen flex-col items-center py-2">
@@ -30,6 +32,7 @@ const Typography = () => {
 					<Avatar size="h-28" />
 					<div>Avatar</div>
 				</div>
+
 				<div className="flex flex-col items-center justify-center p-2 hover:shadow-lg rounded-md border space-y-2">
 					<Button
 						label="Button"
@@ -130,7 +133,7 @@ const Typography = () => {
 				<div className="flex flex-col items-center justify-center p-2 hover:shadow-lg rounded-md border space-y-2">
 					<Toggle
 						value={toggleState}
-						onChange={() => setToggleState((prev) => !prev)}
+						onChange={() => setToggleState(prev => !prev)}
 					/>
 					<div>Toggle</div>
 				</div>
@@ -142,7 +145,7 @@ const Typography = () => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Typography;
+export default Typography

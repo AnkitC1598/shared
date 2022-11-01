@@ -1,5 +1,5 @@
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
-import { classNames } from "../../../utils";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid"
+import { classNames } from "../../../utils"
 
 const Input = ({
 	handleSubmit,
@@ -11,7 +11,10 @@ const Input = ({
 }) => {
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="relative w-full">
+			<form
+				onSubmit={handleSubmit}
+				className="relative w-full"
+			>
 				<input
 					className={classNames(
 						"block w-full flex-1 rounded-md p-2 pr-10 text-slate-900 placeholder:text-slate-400 border-0 focus:outline-none focus:ring-0 sm:text-sm",
@@ -21,8 +24,8 @@ const Input = ({
 					defaultValue={defaultValue}
 					placeholder={placeholder}
 					name="text"
-					onChange={(e) => {
-						setValue(e.target.value);
+					onChange={e => {
+						setValue(e.target.value)
 					}}
 					autoComplete="off"
 				/>
@@ -35,13 +38,13 @@ const Input = ({
 				</button>
 			</form>
 		</>
-	);
-};
+	)
+}
 
 Input.defaultProps = {
-	handleSubmit: (e) => {
-		e?.preventDefault();
-		console.debug(e.target);
+	handleSubmit: e => {
+		e?.preventDefault()
+		console.debug(e.target)
 	},
 	placeholder: "",
 	defaultValue: "",
@@ -49,6 +52,6 @@ Input.defaultProps = {
 	submitIcon: <PaperAirplaneIcon className="h-6 w-6" />,
 	className:
 		"text-slate-900 dark:text-slate-200 bg-neutral-50 dark:bg-neutral-900 focus:text-slate-900 dark:focus:text-slate-200 focus:bg-neutral-50 dark:focus:bg-neutral-900",
-};
+}
 
-export default Input;
+export default Input

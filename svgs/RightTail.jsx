@@ -1,9 +1,14 @@
-import React from "react";
+import React from "react"
 
 const RightTail = ({ className }) => {
 	return (
 		<>
-			<svg viewBox="0 0 8 13" width="8" height="13" className={className}>
+			<svg
+				viewBox="0 0 8 13"
+				width="8"
+				height="13"
+				className={className}
+			>
 				<path
 					opacity=".13"
 					d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z"
@@ -14,11 +19,11 @@ const RightTail = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 RightTail.defaultProps = {
 	className: "",
-};
+}
 
-export default RightTail;
+export default RightTail

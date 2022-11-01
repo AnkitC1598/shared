@@ -1,9 +1,9 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { classNames } from "../../../utils";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
+import { classNames } from "../../../utils"
 
 const Search = ({ className, placeholder, setSearch }) => {
 	if (Object.prototype.toString.call(setSearch) !== "[object Function]")
-		return null;
+		return null
 
 	return (
 		<>
@@ -24,19 +24,19 @@ const Search = ({ className, placeholder, setSearch }) => {
 						className="h-full w-full border-0 bg-slate-50 dark:bg-neutral-800 py-2 pl-10 pr-3 leading-5 focus:outline-none focus:ring-0 sm:text-sm"
 						type="search"
 						placeholder={placeholder}
-						onChange={(e) => setSearch(e.target.value)}
+						onChange={e => setSearch(e.target.value)}
 						autoComplete="false"
 					/>
 				</div>
 			</div>
 		</>
-	);
-};
+	)
+}
 
 Search.defaultProps = {
 	className: "",
 	placeholder: "Search",
 	setSearch: console.log,
-};
+}
 
-export default Search;
+export default Search

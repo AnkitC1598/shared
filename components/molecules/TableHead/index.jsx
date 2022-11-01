@@ -1,9 +1,9 @@
-import React from "react";
-import { TableHeader } from "../../atoms";
+import React from "react"
+import { TableHeader } from "../../atoms"
 
 const TableHead = ({ headers, srHeader, setSortBy, sortBy }) => {
 	if (Object.prototype.toString.call(headers) !== "[object Array]")
-		return null;
+		return null
 	return (
 		<thead className="sticky top-0 border-b-[1px] border-b-gray-200 bg-gray-50">
 			<tr>
@@ -14,7 +14,7 @@ const TableHead = ({ headers, srHeader, setSortBy, sortBy }) => {
 					sortable={srHeader.sortable}
 					sortBy={sortBy}
 				/>
-				{headers.map((header) => (
+				{headers.map(header => (
 					<TableHeader
 						key={header.label}
 						label={header.label}
@@ -26,14 +26,14 @@ const TableHead = ({ headers, srHeader, setSortBy, sortBy }) => {
 				))}
 			</tr>
 		</thead>
-	);
-};
+	)
+}
 
 TableHead.defaultProps = {
 	headers: [{ id: "idx", label: "#", sortable: false }],
 	srHeader: { id: "idx", label: "#", sortable: false },
 	setSortBy: console.log,
 	sortBy: {},
-};
+}
 
-export default TableHead;
+export default TableHead

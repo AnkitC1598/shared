@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const ArrowUp = ({ className, filled }) => {
 	return (
@@ -33,12 +33,12 @@ const ArrowUp = ({ className, filled }) => {
 				</svg>
 			)}
 		</>
-	);
-};
+	)
+}
 
 ArrowUp.defaultProps = {
 	className: "",
 	filled: false,
-};
+}
 
-export default ArrowUp;
+export default ArrowUp

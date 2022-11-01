@@ -1,99 +1,92 @@
-import { TrashIcon } from "@heroicons/react/24/solid";
-import {
-	useCallback,
-	useEffect,
-	useId,
-	useMemo,
-	useRef,
-	useState
-} from "react";
-import { classNames } from "../../../utils";
+import { TrashIcon } from "@heroicons/react/24/solid"
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react"
+import { classNames } from "../../../utils"
 
 const DragNDrop = ({ label, onFileChange, formats, formatType, maxSize }) => {
-	const dropRef = useRef();
-	const dragCounter = useRef(0);
-	const dropHeight = useRef();
-	const dragging = useRef();
-	const [file, setFile] = useState();
+	const dropRef = useRef()
+	const dragCounter = useRef(0)
+	const dropHeight = useRef()
+	const dragging = useRef()
+	const [file, setFile] = useState()
 
 	const fileLink = useMemo(
 		() => (file ? URL.createObjectURL(file) : null),
 		[file]
-	);
+	)
 
 	const inputLabel = useMemo(
 		() => (label ? label.replace(" ", "-").toLowerCase() : useId()),
 		[label]
-	);
+	)
 
-	const fileSizeValid = useCallback((fileSize) => {
-		console.log(parseInt(fileSize / 1024));
-		if (parseInt(fileSize / 1024) <= maxSize * 1000) return true;
-		return false;
-	});
+	const fileSizeValid = useCallback(fileSize => {
+		console.log(parseInt(fileSize / 1024))
+		if (parseInt(fileSize / 1024) <= maxSize * 1000) return true
+		return false
+	})
 
-	const handleDrag = (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-	};
-	const handleDragIn = (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		dragCounter.current++;
+	const handleDrag = e => {
+		e.preventDefault()
+		e.stopPropagation()
+	}
+	const handleDragIn = e => {
+		e.preventDefault()
+		e.stopPropagation()
+		dragCounter.current++
 		if (e.dataTransfer.items && e.dataTransfer.items.length > 0)
-			dragging.current = true;
-	};
-	const handleDragOut = (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		dragCounter.current--;
-		if (dragCounter.current === 0) dragging.current = false;
-	};
-	const handleDrop = (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		dragging.current = false;
+			dragging.current = true
+	}
+	const handleDragOut = e => {
+		e.preventDefault()
+		e.stopPropagation()
+		dragCounter.current--
+		if (dragCounter.current === 0) dragging.current = false
+	}
+	const handleDrop = e => {
+		e.preventDefault()
+		e.stopPropagation()
+		dragging.current = false
 		if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-			console.log(e.dataTransfer);
-			const inputFile = e.dataTransfer.files[0];
+			console.log(e.dataTransfer)
+			const inputFile = e.dataTransfer.files[0]
 			if (fileSizeValid(inputFile.size)) {
-				setFile(inputFile);
-				onFileChange(inputFile);
-				e.dataTransfer.clearData();
-				dragCounter.current = 0;
+				setFile(inputFile)
+				onFileChange(inputFile)
+				e.dataTransfer.clearData()
+				dragCounter.current = 0
 			}
 		}
-	};
+	}
 
-	const handleFileInput = (e) => {
-		alert(label);
-		const inputFile = e.target.files[0];
+	const handleFileInput = e => {
+		alert(label)
+		const inputFile = e.target.files[0]
 		if (fileSizeValid(inputFile.size)) {
-			setFile(inputFile);
-			onFileChange(inputFile);
+			setFile(inputFile)
+			onFileChange(inputFile)
 		}
-	};
+	}
 
 	const removeFile = () => {
-		setFile();
-	};
+		setFile()
+	}
 
 	useEffect(() => {
-		const dropDiv = dropRef.current;
-		dropHeight.current = dropDiv.offsetHeight;
-		dropDiv.addEventListener("dragenter", handleDragIn);
-		dropDiv.addEventListener("dragleave", handleDragOut);
-		dropDiv.addEventListener("dragover", handleDrag);
-		dropDiv.addEventListener("drop", handleDrop);
+		const dropDiv = dropRef.current
+		dropHeight.current = dropDiv.offsetHeight
+		dropDiv.addEventListener("dragenter", handleDragIn)
+		dropDiv.addEventListener("dragleave", handleDragOut)
+		dropDiv.addEventListener("dragover", handleDrag)
+		dropDiv.addEventListener("drop", handleDrop)
 		return () => {
-			dropDiv.removeEventListener("dragenter", handleDragIn);
-			dropDiv.removeEventListener("dragleave", handleDragOut);
-			dropDiv.removeEventListener("dragover", handleDrag);
-			dropDiv.removeEventListener("drop", handleDrop);
-		};
-	}, []);
+			dropDiv.removeEventListener("dragenter", handleDragIn)
+			dropDiv.removeEventListener("dragleave", handleDragOut)
+			dropDiv.removeEventListener("dragover", handleDrag)
+			dropDiv.removeEventListener("drop", handleDrop)
+		}
+	}, [])
 
-	useEffect(() => {});
+	useEffect(() => {})
 	return (
 		<>
 			<div className="h-full flex flex-col">
@@ -141,7 +134,7 @@ const DragNDrop = ({ label, onFileChange, formats, formatType, maxSize }) => {
 										onChange={handleFileInput}
 										accept={formats
 											.map(
-												(format) =>
+												format =>
 													`${formatType}/${format}`
 											)
 											.join(", ")}
@@ -173,8 +166,8 @@ const DragNDrop = ({ label, onFileChange, formats, formatType, maxSize }) => {
 				</div>
 			</div>
 		</>
-	);
-};
+	)
+}
 
 DragNDrop.defaultProps = {
 	formats: ["png", "jpg", "jpeg", "webp"],
@@ -182,6 +175,6 @@ DragNDrop.defaultProps = {
 	label: "Upload a file",
 	onFileChange: console.log,
 	maxSize: 1,
-};
+}
 
-export default DragNDrop;
+export default DragNDrop

@@ -1,4 +1,4 @@
-import { classNames } from "../../../utils";
+import { classNames } from "../../../utils"
 
 const ProgressBar = ({
 	max,
@@ -68,8 +68,8 @@ const ProgressBar = ({
 				</div>
 			</div>
 		</>
-	);
-};
+	)
+}
 
 ProgressBar.defaultProps = {
 	max: 100,
@@ -82,6 +82,6 @@ ProgressBar.defaultProps = {
 		"bg-purple-700 dark:bg-purple-300",
 	],
 	trackHeight: "h-6",
-};
+}
 
-export default ProgressBar;
+export default ProgressBar

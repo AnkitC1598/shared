@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Instagram = ({ className }) => {
 	return (
@@ -14,11 +14,11 @@ const Instagram = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 Instagram.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default Instagram;
+export default Instagram

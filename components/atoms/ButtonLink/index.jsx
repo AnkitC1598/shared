@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { classNames } from "../../../utils";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { classNames } from "../../../utils"
 
 const ButtonLink = ({
 	to,
@@ -12,27 +12,28 @@ const ButtonLink = ({
 	width,
 	withCurrent,
 }) => {
-	const { asPath: path } = useRouter();
+	const path = usePathname()
 
 	return (
 		<>
-			<Link href={withCurrent ? `${path === "/" ? "" : path}${to}` : to}>
-				<a
-					className={classNames(
-						"rounded-md flex items-center justify-center space-x-1 px-4 py-2 text-center text-sm shadow-sm focus:outline-none focus:ring-0",
-						bgColor,
-						color,
-						weight,
-						width
-					)}
-				>
+			<Link
+				href={withCurrent ? `${path === "/" ? "" : path}${to}` : to}
+				className={classNames(
+					"rounded-md flex items-center justify-center space-x-1 px-4 py-2 text-center text-sm shadow-sm focus:outline-none focus:ring-0",
+					bgColor,
+					color,
+					weight,
+					width
+				)}
+			>
+				<>
 					{icon ? icon : null}
 					<span>{label}</span>
-				</a>
+				</>
 			</Link>
 		</>
-	);
-};
+	)
+}
 
 ButtonLink.defaultProps = {
 	to: "/",
@@ -44,6 +45,6 @@ ButtonLink.defaultProps = {
 	weight: "font-semibold",
 	width: "w-full",
 	withCurrent: true,
-};
+}
 
-export default ButtonLink;
+export default ButtonLink

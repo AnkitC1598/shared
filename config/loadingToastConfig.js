@@ -5,4 +5,4 @@ export default {
 	pauseOnHover: false,
 	autoClose: 1000,
 	draggable: true,
-};
+}

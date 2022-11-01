@@ -4,4 +4,4 @@ export default {
 	transitionState: {
 		duration: 0.75,
 	},
-};
+}

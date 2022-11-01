@@ -1,17 +1,19 @@
-import { Menu, Transition } from "@headlessui/react";
-import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
-import { Fragment } from "react";
-import { classNames } from "../../../utils";
+import { Menu, Transition } from "@headlessui/react"
+import { EllipsisVerticalIcon } from "@heroicons/react/24/solid"
+import { Fragment } from "react"
+import { classNames } from "../../../utils"
 
 const Options = ({ options }) => {
 	if (Object.prototype.toString.call(options) !== "[object Array]")
-		throw new Error("Options must be an array");
-	if (!options.length)
-		throw new Error("Options must have atleast one option");
+		throw new Error("Options must be an array")
+	if (!options.length) throw new Error("Options must have atleast one option")
 
 	return (
 		<>
-			<Menu as="div" className="relative inline-block text-left">
+			<Menu
+				as="div"
+				className="relative inline-block text-left"
+			>
 				<Menu.Button className="inline-flex items-center p-2 text-sm font-medium text-slate-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md focus:outline-none focus:ring-0 cursor-pointer">
 					<span className="sr-only">Open options menu</span>
 					<EllipsisVerticalIcon
@@ -34,22 +36,23 @@ const Options = ({ options }) => {
 								<Menu.Item key={option.label + idx}>
 									{({ active }) =>
 										option.isLink ? (
-											<Link href={option.link}>
-												<a
-													target="_blank"
-													rel="noopener noreferrer"
-													className={classNames(
-														active
-															? "bg-neutral-200 dark:bg-neutral-600 text-slate-900 dark:text-slate-200"
-															: "bg-neutral-50 dark:bg-neutral-800 text-slate-900 dark:text-slate-200",
-														"rounded-md px-4 py-2 text-sm flex space-x-2"
-													)}
-												>
+											<Link
+												href={option.link}
+												target="_blank"
+												rel="noopener noreferrer"
+												className={classNames(
+													active
+														? "bg-neutral-200 dark:bg-neutral-600 text-slate-900 dark:text-slate-200"
+														: "bg-neutral-50 dark:bg-neutral-800 text-slate-900 dark:text-slate-200",
+													"rounded-md px-4 py-2 text-sm flex space-x-2"
+												)}
+											>
+												<>
 													{option.icon
 														? option.icon
 														: null}
 													<span>{option.label}</span>
-												</a>
+												</>
 											</Link>
 										) : option.isExternalLink ? (
 											<a
@@ -92,11 +95,11 @@ const Options = ({ options }) => {
 				</Transition>
 			</Menu>
 		</>
-	);
-};
+	)
+}
 
 Options.defaultProps = {
 	options: [],
-};
+}
 
-export default Options;
+export default Options

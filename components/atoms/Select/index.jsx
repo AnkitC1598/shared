@@ -1,7 +1,7 @@
-import { Listbox, Transition } from "@headlessui/react";
-import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/20/solid";
-import { Fragment, useMemo } from "react";
-import { classNames } from "../../../utils";
+import { Listbox, Transition } from "@headlessui/react"
+import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/20/solid"
+import { Fragment, useMemo } from "react"
+import { classNames } from "../../../utils"
 
 const Select = ({
 	label,
@@ -14,15 +14,18 @@ const Select = ({
 	removeSelected,
 }) => {
 	if (Object.prototype.toString.call(selected) === "[object String]")
-		selected = useMemo(() => options.find(optionsEle => optionsEle.value === selected) || null, [options, selected]);
+		selected = useMemo(
+			() =>
+				options.find(optionsEle => optionsEle.value === selected) ||
+				null,
+			[options, selected]
+		)
 
 	return (
 		<>
 			<Listbox
 				value={selected}
-				onChange={(e) =>
-					setSelected({ target: { name: id, value: e } })
-				}
+				onChange={e => setSelected({ target: { name: id, value: e } })}
 			>
 				{({ open }) => (
 					<>
@@ -46,8 +49,11 @@ const Select = ({
 														</span>
 														<XMarkIcon
 															className="w-3 h-3 cursor-pointer"
-															onClick={(e) =>
-																removeSelected({ key: id, value: s })
+															onClick={e =>
+																removeSelected({
+																	key: id,
+																	value: s,
+																})
 															}
 														/>
 													</span>
@@ -84,7 +90,7 @@ const Select = ({
 								leaveTo="opacity-0"
 							>
 								<Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-									{options.map((option) => (
+									{options.map(option => (
 										<Listbox.Option
 											key={option.value}
 											className={({ active }) =>
@@ -120,19 +126,19 @@ const Select = ({
 				)}
 			</Listbox>
 		</>
-	);
-};
+	)
+}
 
 Select.defaultProps = {
 	options: [],
 	multiple: false,
 	placeholder: "Select an option",
-	label: 'Select',
-	id: 'select',
+	label: "Select",
+	id: "select",
 	selected: null,
 	multiple: false,
 	setSelected: () => false,
 	removeSelected: () => false,
-};
+}
 
-export default Select;
+export default Select

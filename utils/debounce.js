@@ -1,10 +1,13 @@
 const debounce = (func, wait) => {
-	let timer;
+	let timer
 	return (...args) => {
-		const ctx = this;
-		clearTimeout(timer);
-		timer = setTimeout(() => { timer = null; func.apply(ctx, args) }, wait);
-	};
-};
+		const ctx = this
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			timer = null
+			func.apply(ctx, args)
+		}, wait)
+	}
+}
 
-export default debounce;
+export default debounce

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Linkedin = ({ className }) => {
 	return (
@@ -14,11 +14,11 @@ const Linkedin = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 Linkedin.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default Linkedin;
+export default Linkedin

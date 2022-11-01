@@ -1,17 +1,17 @@
-import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { Combobox, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useQuery } from "@tanstack/react-query";
-import { Fragment, useState } from "react";
-import { Avatar, Loader } from "..";
-import useDebounce from "../../../hooks/useDebounce";
-import { fetchUser } from "../../../queries";
-import { classNames } from "../../../utils";
+import { useAutoAnimate } from "@formkit/auto-animate/react"
+import { Combobox, Transition } from "@headlessui/react"
+import { XMarkIcon } from "@heroicons/react/24/solid"
+import { useQuery } from "@tanstack/react-query"
+import { Fragment, useState } from "react"
+import { Avatar, Loader } from ".."
+import useDebounce from "../../../hooks/useDebounce"
+import { fetchUser } from "../../../queries"
+import { classNames } from "../../../utils"
 
 const UserSearch = ({ selected, add, remove, placeholder, maxListHeight }) => {
-	const [query, setQuery] = useState("");
+	const [query, setQuery] = useState("")
 
-	const deboucedQuery = useDebounce(query, 500);
+	const deboucedQuery = useDebounce(query, 500)
 	const { data: searchResult, isLoading } = useQuery(
 		["search", deboucedQuery],
 		fetchUser,
@@ -19,19 +19,22 @@ const UserSearch = ({ selected, add, remove, placeholder, maxListHeight }) => {
 			enabled: deboucedQuery.length > 0,
 			retry: false,
 		}
-	);
+	)
 
-	const [listAnimationRef] = useAutoAnimate();
+	const [listAnimationRef] = useAutoAnimate()
 
 	return (
 		<div className="flex flex-1 flex-col space-y-4 h-full divide-y divide-neutral-200 dark:divide-neutral-800 text-slate-900 dark:text-slate-200">
-			<Combobox value={selected} onChange={add}>
+			<Combobox
+				value={selected}
+				onChange={add}
+			>
 				<div className="relative mt-1 w-full">
 					<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-900 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
 						<Combobox.Input
 							className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0 bg-neutral-50 dark:bg-neutral-900"
 							// displayValue={(selectedValue) => selectedValue?.name}
-							onChange={(event) => setQuery(event.target.value)}
+							onChange={event => setQuery(event.target.value)}
 							autoComplete="off"
 							placeholder={placeholder}
 						/>
@@ -93,8 +96,8 @@ const UserSearch = ({ selected, add, remove, placeholder, maxListHeight }) => {
 					maxListHeight
 				)}
 			>
-				{selected.length
-					? selected.map((s, idx) => (
+				{selected?.length
+					? selected?.map((s, idx) => (
 							<li
 								key={s.username + idx}
 								className="p-2 shadow rounded-md border border-neutral-200 dark:border-neutral-800 flex space-x-2"
@@ -124,8 +127,8 @@ const UserSearch = ({ selected, add, remove, placeholder, maxListHeight }) => {
 					: null}
 			</ul>
 		</div>
-	);
-};
+	)
+}
 
 UserSearch.defaultProps = {
 	placeholder: "Search for a user",
@@ -133,6 +136,6 @@ UserSearch.defaultProps = {
 	add: () => false,
 	remove: () => false,
 	maxListHeight: "h-full",
-};
+}
 
-export default UserSearch;
+export default UserSearch

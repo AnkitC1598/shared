@@ -1,5 +1,5 @@
-import React from "react";
-import { classNames } from "../../../utils";
+import React from "react"
+import { classNames } from "../../../utils"
 
 const Role = ({ className, role }) => {
 	return (
@@ -20,12 +20,12 @@ const Role = ({ className, role }) => {
 				</span>
 			) : null}
 		</>
-	);
-};
+	)
+}
 
 Role.defaultProps = {
 	className: "",
 	role: "member",
-};
+}
 
-export default Role;
+export default Role

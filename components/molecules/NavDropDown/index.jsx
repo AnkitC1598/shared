@@ -1,13 +1,16 @@
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Fragment } from "react";
-import { classNames } from "../../../utils";
-import { NavDropDownLink } from "../../atoms";
+import { Menu, Transition } from "@headlessui/react"
+import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import { Fragment } from "react"
+import { classNames } from "../../../utils"
+import { NavDropDownLink } from "../../atoms"
 
 const NavDropDown = ({ name, navDropDownItems, close }) => {
 	return (
 		<>
-			<Menu as="div" className="relative w-full inline-block text-left">
+			<Menu
+				as="div"
+				className="relative w-full inline-block text-left"
+			>
 				<Menu.Button className="font-medium text-slate-900 dark:text-slate-200 border-0 focus:outline-none rounded flex items-center cursor-pointer justify-center h-10 space-x-1">
 					<span>{name}</span>
 					<ChevronDownIcon
@@ -26,7 +29,7 @@ const NavDropDown = ({ name, navDropDownItems, close }) => {
 				>
 					<Menu.Items className="absolute right-0 w-full min-w-max mt-2 origin-top-right divide-y bg-white dark:bg-neutral-900 divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
 						<div className="px-1 py-1 ">
-							{navDropDownItems.map((dropDownItem) => (
+							{navDropDownItems.map(dropDownItem => (
 								<Menu.Item
 									key={dropDownItem.name}
 									onClick={close}
@@ -72,7 +75,7 @@ const NavDropDown = ({ name, navDropDownItems, close }) => {
 				</Transition>
 			</Menu>
 		</>
-	);
-};
+	)
+}
 
-export default NavDropDown;
+export default NavDropDown

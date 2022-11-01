@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
+const plugin = require("tailwindcss/plugin")
 
 module.exports = {
 	content: [
-		"./pages/**/*.{js,ts,jsx,tsx}",
+		"./app/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
 	darkMode: "class",
@@ -15,16 +15,16 @@ module.exports = {
 				chatTab: "calc(100vh - 172px)",
 				screen: "calc(var(--vh) * 100)",
 			},
-			minHeight: (theme) => theme("height"),
-			maxHeight: (theme) => theme("height"),
+			minHeight: theme => theme("height"),
+			maxHeight: theme => theme("height"),
 			width: {
 				excludeSidebarIcon: "calc(100vw - 62px)",
 				sidebarIcon: "62px",
 				"8xl": "1440px",
 				"9xl": "1600px",
 			},
-			minWidth: (theme) => theme("width"),
-			maxWidth: (theme) => theme("width"),
+			minWidth: theme => theme("width"),
+			maxWidth: theme => theme("width"),
 			colors: {
 				lu: {
 					50: "#FFD4B8",
@@ -48,10 +48,10 @@ module.exports = {
 			fontSize: {
 				xxs: "0.625rem",
 			},
-			textColor: (theme) => theme("colors"),
-			backgroundColor: (theme) => theme("colors"),
-			borderColor: (theme) => theme("colors"),
-			ringColor: (theme) => theme("colors"),
+			textColor: theme => theme("colors"),
+			backgroundColor: theme => theme("colors"),
+			borderColor: theme => theme("colors"),
+			ringColor: theme => theme("colors"),
 		},
 	},
 	plugins: [
@@ -82,11 +82,11 @@ module.exports = {
 					},
 				},
 				["responsive"]
-			);
+			)
 		}),
 		plugin(function ({ addUtilities }) {
-			const supportsTouchRule = "@supports (-webkit-touch-callout: none)";
-			const webkitFillAvailable = "-webkit-fill-available";
+			const supportsTouchRule = "@supports (-webkit-touch-callout: none)"
+			const webkitFillAvailable = "-webkit-fill-available"
 
 			const utilities = {
 				".min-h-screen-ios": {
@@ -104,9 +104,9 @@ module.exports = {
 						height: webkitFillAvailable,
 					},
 				},
-			};
+			}
 
-			addUtilities(utilities, ["responsive"]);
+			addUtilities(utilities, ["responsive"])
 		}),
 	],
-};
+}

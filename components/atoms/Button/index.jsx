@@ -1,4 +1,4 @@
-import { classNames } from "../../../utils";
+import { classNames } from "../../../utils"
 
 const Button = ({
 	action,
@@ -27,8 +27,8 @@ const Button = ({
 				<span>{label}</span>
 			</button>
 		</>
-	);
-};
+	)
+}
 
 Button.defaultProps = {
 	action: () => false,
@@ -40,6 +40,6 @@ Button.defaultProps = {
 	className: "w-full",
 	type: "button",
 	disabled: false,
-};
+}
 
-export default Button;
+export default Button

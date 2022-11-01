@@ -18,12 +18,12 @@ const dateSegment = (chats, dateSegmentedChat) => {
 			: dateSegmentedChat.push({
 					...val,
 					type: val?.type ? val?.type : "message",
-			  });
-	});
-	return dateSegmentedChat;
-};
+			  })
+	})
+	return dateSegmentedChat
+}
 
-const pusher = (arr, val) => arr.push(val);
+const pusher = (arr, val) => arr.push(val)
 
 const groupifyChat = (chats, groupedChats, reverse = false) => {
 	// const dateSegmentedChat = dateSegment(
@@ -33,44 +33,44 @@ const groupifyChat = (chats, groupedChats, reverse = false) => {
 	chats.forEach((chat, idx) => {
 		const prevUID = groupedChats.length
 			? groupedChats.at(-1)?.user?.uid
-			: chats[idx - 1]?.user?.uid;
+			: chats[idx - 1]?.user?.uid
 
 		const prevType = groupedChats.length
 			? groupedChats.at(-1)?.type
-			: chats[idx - 1]?.type;
+			: chats[idx - 1]?.type
 
 		if (chat.type?.includes("member")) {
 			if (prevType === chat.type) {
-				groupedChats.at(-1).users.push(chat.msg);
+				groupedChats.at(-1).users.push(chat.msg)
 			} else {
 				pusher(groupedChats, {
 					type: `member${chat.status}`,
 					users: [chat.msg],
-				});
+				})
 			}
 		} else if (chat.type === "dateDiff") {
 			pusher(groupedChats, {
 				type: chat.type,
 				date: chat.date,
-			});
+			})
 		} else {
 			if (chat.user.uid !== prevUID) {
-				const user = chat.user;
-				delete chat.user;
+				const user = chat.user
+				delete chat.user
 				pusher(groupedChats, {
 					user,
 					type: "message",
 					createdAt: chat.createdAt,
 					messages: [chat],
-				});
+				})
 			} else {
-				delete chat.user;
-				groupedChats.at(-1).createdAt = chat.createdAt;
-				groupedChats.at(-1).messages.push(chat);
+				delete chat.user
+				groupedChats.at(-1).createdAt = chat.createdAt
+				groupedChats.at(-1).messages.push(chat)
 			}
 		}
-	});
-	return groupedChats;
-};
+	})
+	return groupedChats
+}
 
-export default groupifyChat;
+export default groupifyChat

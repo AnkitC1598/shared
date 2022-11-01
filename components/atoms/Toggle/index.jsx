@@ -1,6 +1,6 @@
-import { Switch } from "@headlessui/react";
-import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { classNames } from "../../../utils";
+import { Switch } from "@headlessui/react"
+import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid"
+import { classNames } from "../../../utils"
 
 const Toggle = ({
 	size,
@@ -12,40 +12,40 @@ const Toggle = ({
 	falseState,
 	labelPosition,
 }) => {
-	let toggleClass;
-	let thumbClass;
-	let translate;
-	let labelPosClass;
+	let toggleClass
+	let thumbClass
+	let translate
+	let labelPosClass
 	switch (size) {
 		case "sm":
-			toggleClass = "h-4 w-7";
-			thumbClass = "h-3 w-3";
-			translate = "translate-x-3";
-			break;
+			toggleClass = "h-4 w-7"
+			thumbClass = "h-3 w-3"
+			translate = "translate-x-3"
+			break
 		default:
-			toggleClass = "h-6 w-11";
-			thumbClass = "h-5 w-5";
-			translate = "translate-x-5";
-			break;
+			toggleClass = "h-6 w-11"
+			thumbClass = "h-5 w-5"
+			translate = "translate-x-5"
+			break
 	}
 	switch (labelPosition) {
 		case "top":
-			labelPosClass = "flex-col space-y-2";
-			break;
+			labelPosClass = "flex-col space-y-2"
+			break
 		case "left":
-			labelPosClass = "justify-between items-center";
-			break;
+			labelPosClass = "justify-between items-center"
+			break
 		case "right":
-			labelPosClass = "flex-row-reverse justify-between items-center";
-			break;
+			labelPosClass = "flex-row-reverse justify-between items-center"
+			break
 		case "bottom":
-			labelPosClass = "flex-col-reverse";
-			break;
+			labelPosClass = "flex-col-reverse"
+			break
 		default:
-			toggleClass = "h-6 w-11";
-			thumbClass = "h-5 w-5";
-			translate = "translate-x-5";
-			break;
+			toggleClass = "h-6 w-11"
+			thumbClass = "h-5 w-5"
+			translate = "translate-x-5"
+			break
 	}
 
 	return (
@@ -127,8 +127,8 @@ const Toggle = ({
 				</Switch>
 			</Switch.Group>
 		</>
-	);
-};
+	)
+}
 
 Toggle.defaultProps = {
 	size: null,
@@ -148,6 +148,6 @@ Toggle.defaultProps = {
 	},
 	vertical: false,
 	labelPosition: "left",
-};
+}
 
-export default Toggle;
+export default Toggle

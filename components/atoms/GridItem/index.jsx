@@ -1,4 +1,4 @@
-import { createElement } from "react";
+import { createElement } from "react"
 
 const GridItem = ({ children }) => {
 	return (
@@ -7,11 +7,11 @@ const GridItem = ({ children }) => {
 				{children}
 			</li>
 		</>
-	);
-};
+	)
+}
 
 GridItem.defaultProps = {
 	children: createElement("div"),
-};
+}
 
-export default GridItem;
+export default GridItem

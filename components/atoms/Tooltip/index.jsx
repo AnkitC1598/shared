@@ -1,22 +1,22 @@
-import { classNames } from "../../../utils";
+import { classNames } from "../../../utils"
 
 const Tooltip = ({ position = "top", label, bgColor }) => {
-	let positionClass;
+	let positionClass
 	switch (position) {
 		case "top":
-			positionClass = "bottom-120 left-0";
-			break;
+			positionClass = "bottom-120 left-0"
+			break
 		case "bottom":
-			positionClass = "top-120 left-0";
-			break;
+			positionClass = "top-120 left-0"
+			break
 		case "left":
-			positionClass = "right-120";
-			break;
+			positionClass = "right-120"
+			break
 		case "right":
-			positionClass = "left-120";
-			break;
+			positionClass = "left-120"
+			break
 		default:
-			break;
+			break
 	}
 	return (
 		<span
@@ -28,13 +28,13 @@ const Tooltip = ({ position = "top", label, bgColor }) => {
 		>
 			{label}
 		</span>
-	);
-};
+	)
+}
 
 Tooltip.defaultProps = {
 	position: "top",
 	label: "Tooltip",
 	bgColor: "bg-neutral-500",
-};
+}
 
-export default Tooltip;
+export default Tooltip

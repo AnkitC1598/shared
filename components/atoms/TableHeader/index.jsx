@@ -1,6 +1,6 @@
-import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
-import React from "react";
-import { classNames } from "../../../utils";
+import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/20/solid"
+import React from "react"
+import { classNames } from "../../../utils"
 
 const TableHeader = ({ className, id, label, setSortBy, sortable, sortBy }) => {
 	return (
@@ -19,7 +19,7 @@ const TableHeader = ({ className, id, label, setSortBy, sortable, sortBy }) => {
 				sortable &&
 				Object.prototype.toString.call(setSortBy) ===
 					"[object Function]"
-					? setSortBy((prev) => ({
+					? setSortBy(prev => ({
 							key: `classDate[${id}]`,
 							by: prev?.by === "asc" ? "desc" : "asc",
 					  }))
@@ -49,8 +49,8 @@ const TableHeader = ({ className, id, label, setSortBy, sortable, sortBy }) => {
 				) : null}
 			</span>
 		</th>
-	);
-};
+	)
+}
 
 TableHeader.defaultProps = {
 	className: "",
@@ -59,6 +59,6 @@ TableHeader.defaultProps = {
 	setSortBy: console.log,
 	sortable: false,
 	sortBy: {},
-};
+}
 
-export default TableHeader;
+export default TableHeader

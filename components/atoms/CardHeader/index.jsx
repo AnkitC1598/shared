@@ -1,5 +1,5 @@
-import React, { createElement } from "react";
-import { classNames } from "../../../utils";
+import React, { createElement } from "react"
+import { classNames } from "../../../utils"
 
 const CardHeader = ({ children, className }) => {
 	return (
@@ -8,12 +8,12 @@ const CardHeader = ({ children, className }) => {
 				<div className="flex-1 w-full space-y-2">{children}</div>
 			</div>
 		</>
-	);
-};
+	)
+}
 
 CardHeader.defaultProps = {
 	children: createElement("div"),
 	className: "",
-};
+}
 
-export default CardHeader;
+export default CardHeader

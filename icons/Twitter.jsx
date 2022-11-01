@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Twitter = ({ className }) => {
 	return (
@@ -14,11 +14,11 @@ const Twitter = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 Twitter.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default Twitter;
+export default Twitter

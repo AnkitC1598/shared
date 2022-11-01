@@ -1,16 +1,13 @@
-import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import {
-	BoltIcon,
-	BoltSlashIcon
-} from "@heroicons/react/24/solid";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Fragment } from "react";
-import CookieService from "../../../services/cookie.service";
-import { classNames } from "../../../utils";
-import { ButtonLink, Tooltip } from "../../atoms";
-import NavDropDown from "../../molecules/NavDropDown";
+import { Popover, Transition } from "@headlessui/react"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
+import { BoltIcon, BoltSlashIcon } from "@heroicons/react/24/solid"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { Fragment } from "react"
+import CookieService from "../../../services/cookie.service"
+import { classNames } from "../../../utils"
+import { ButtonLink, Tooltip } from "../../atoms"
+import NavDropDown from "../../molecules/NavDropDown"
 
 const FocusMode = ({ dispatch, focusModeEnabled, needFocusMode }) => {
 	return Object.prototype.toString.call(dispatch) === "[object Function]" &&
@@ -40,8 +37,8 @@ const FocusMode = ({ dispatch, focusModeEnabled, needFocusMode }) => {
 				bgColor="bg-neutral-500 dark:bg-neutral-800"
 			/>
 		</button>
-	) : null;
-};
+	) : null
+}
 
 const Navbar = ({
 	dispatch,
@@ -58,14 +55,14 @@ const Navbar = ({
 			Object.prototype.toString.call(user)
 		)
 	)
-		throw new Error("Navbar: user prop must be passed with withAuth prop");
+		throw new Error("Navbar: user prop must be passed with withAuth prop")
 
-	const router = useRouter();
+	const router = useRouter()
 	const logout = () => {
-		dispatch({ type: "LOGOUT" });
-		CookieService.removeTokens();
-		router.push("/login");
-	};
+		dispatch({ type: "LOGOUT" })
+		CookieService.removeTokens()
+		router.push("/login")
+	}
 	return (
 		<>
 			<div className="mx-auto w-full border-b border-neutral-200 bg-white text-slate-900 dark:border-neutral-800 dark:bg-neutral-900 dark:text-slate-200">
@@ -77,7 +74,7 @@ const Navbar = ({
 						<div className="flex flex-1 items-center justify-between">
 							<div className="flex-1 flex items-center justify-between">
 								<Link href="/">
-									<a>
+									<>
 										<span className="sr-only">
 											LetsUpgrade
 										</span>
@@ -91,7 +88,7 @@ const Navbar = ({
 											src="/logo.png"
 											alt="LetsUpgrade"
 										/>
-									</a>
+									</>
 								</Link>
 								<span className=" md:hidden flex space-x-4">
 									<FocusMode
@@ -115,7 +112,7 @@ const Navbar = ({
 							<div className="hidden md:ml-10 md:block md:space-x-5">
 								{Object.prototype.toString.call(navigation) ===
 									"[object Array]" && navigation.length
-									? navigation.map((item) =>
+									? navigation.map(item =>
 											item.hasDropDown ? (
 												<NavDropDown
 													key={item.name}
@@ -137,10 +134,9 @@ const Navbar = ({
 												<Link
 													key={item.name}
 													href={item.href}
+													className="font-medium text-slate-900 dark:text-slate-200"
 												>
-													<a className="font-medium text-slate-900 dark:text-slate-200">
-														{item.name}
-													</a>
+													<>{item.name}</>
 												</Link>
 											)
 									  )
@@ -220,7 +216,7 @@ const Navbar = ({
 											navigation
 										) === "[object Array]" &&
 										navigation.length
-											? navigation.map((item) =>
+											? navigation.map(item =>
 													item.hasDropDown ? (
 														<NavDropDown
 															key={item.name}
@@ -244,10 +240,9 @@ const Navbar = ({
 														<Link
 															key={item.name}
 															href={item.href}
+															className="font-medium text-slate-900 dark:text-slate-200"
 														>
-															<a className="font-medium text-slate-900 dark:text-slate-200">
-																{item.name}
-															</a>
+															<>{item.name}</>
 														</Link>
 													)
 											  )
@@ -289,8 +284,8 @@ const Navbar = ({
 				</Popover>
 			</div>
 		</>
-	);
-};
+	)
+}
 
 Navbar.defaultProps = {
 	dispatch: () => false,
@@ -299,6 +294,6 @@ Navbar.defaultProps = {
 	needFocusMode: false,
 	withAuth: false,
 	user: undefined,
-};
+}
 
-export default Navbar;
+export default Navbar

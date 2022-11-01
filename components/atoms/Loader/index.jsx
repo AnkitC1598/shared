@@ -23,11 +23,11 @@ const Loader = ({ text }) => {
 				{text && <p>{text}</p>}
 			</div>
 		</>
-	);
-};
+	)
+}
 
 Loader.defaultProps = {
 	text: null,
-};
+}
 
-export default Loader;
+export default Loader

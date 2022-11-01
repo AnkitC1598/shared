@@ -1,17 +1,17 @@
-import { fetchWithToken } from "../services/axios";
+import { fetchWithToken } from "../services/axios"
 
 export const fetchUser = async ({ queryKey }) => {
-	const [_, username] = queryKey;
-	let resp = await fetchWithToken.get(`/v1/users/${username}`);
-	resp = resp.data.results.data;
+	const [_, username] = queryKey
+	let resp = await fetchWithToken.get(`/v1/users/${username}`)
+	resp = resp.data.results.data
 
 	if (resp.profileImage === null)
 		resp.profileImage = `https://avatars.dicebear.com/api/initials/${resp.username.replace(
 			" ",
 			"-"
-		)}.svg`;
+		)}.svg`
 	if (resp.coverImage === null)
-		resp.coverImage = "https://source.unsplash.com/1600x900/?technology";
+		resp.coverImage = "https://source.unsplash.com/1600x900/?technology"
 
-	return resp;
-};
+	return resp
+}

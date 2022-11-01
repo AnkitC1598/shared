@@ -1,6 +1,6 @@
-import { createElement } from "react";
-import { Title } from "..";
-import { classNames } from "../../../utils";
+import { createElement } from "react"
+import { Title } from ".."
+import { classNames } from "../../../utils"
 
 const GridContainer = ({ children, className, title }) => {
 	return (
@@ -16,13 +16,13 @@ const GridContainer = ({ children, className, title }) => {
 				{children}
 			</ul>
 		</>
-	);
-};
+	)
+}
 
 GridContainer.defaultProps = {
 	children: createElement("li"),
 	className: "",
 	title: null,
-};
+}
 
-export default GridContainer;
+export default GridContainer

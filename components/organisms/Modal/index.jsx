@@ -1,8 +1,8 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { PlusIcon } from "@heroicons/react/20/solid";
-import { Fragment, useMemo, useState } from "react";
-import { classNames } from "../../../utils";
-import Button from "../../atoms/Button";
+import { Dialog, Transition } from "@headlessui/react"
+import { PlusIcon } from "@heroicons/react/20/solid"
+import { Fragment, useMemo, useState } from "react"
+import { classNames } from "../../../utils"
+import Button from "../../atoms/Button"
 
 const Modal = ({
 	btnLabel,
@@ -16,22 +16,26 @@ const Modal = ({
 		() =>
 			Object.prototype.toString.call(customHandler) === "[object Object]",
 		[customHandler]
-	);
+	)
 
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false)
 
 	const close = () => {
-		setIsOpen(false);
-	};
+		setIsOpen(false)
+	}
 
 	const open = () => {
-		setIsOpen(true);
-	};
+		setIsOpen(true)
+	}
 
 	return (
 		<>
 			{!hasCustomHandler ? (
-				<Button action={open} icon={btnIcon} label={btnLabel} />
+				<Button
+					action={open}
+					icon={btnIcon}
+					label={btnLabel}
+				/>
 			) : null}
 			<Transition
 				appear
@@ -81,8 +85,8 @@ const Modal = ({
 				</Dialog>
 			</Transition>
 		</>
-	);
-};
+	)
+}
 
 Modal.defaultProps = {
 	btnLabel: "",
@@ -91,6 +95,6 @@ Modal.defaultProps = {
 	customAction: null,
 	dimensions: "max-w-md",
 	className: "",
-};
+}
 
-export default Modal;
+export default Modal

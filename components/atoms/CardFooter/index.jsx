@@ -1,5 +1,5 @@
-import React, { createElement } from "react";
-import { classNames } from "../../../utils";
+import React, { createElement } from "react"
+import { classNames } from "../../../utils"
 
 const CardFooter = ({ children, className }) => {
 	return (
@@ -13,12 +13,12 @@ const CardFooter = ({ children, className }) => {
 				{children}
 			</div>
 		</>
-	);
-};
+	)
+}
 
 CardFooter.defaultProps = {
 	children: createElement("div"),
 	className: "",
-};
+}
 
-export default CardFooter;
+export default CardFooter

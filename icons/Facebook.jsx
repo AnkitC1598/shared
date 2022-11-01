@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Facebook = ({ className }) => {
 	return (
@@ -14,11 +14,11 @@ const Facebook = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 Facebook.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default Facebook;
+export default Facebook

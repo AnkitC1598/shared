@@ -1,5 +1,5 @@
-import React from "react";
-import { classNames } from "../../../utils";
+import React from "react"
+import { classNames } from "../../../utils"
 
 const Tag = ({ tag, bgColor, rounded, px, py, font }) => {
 	return (
@@ -17,8 +17,8 @@ const Tag = ({ tag, bgColor, rounded, px, py, font }) => {
 				{tag}
 			</span>
 		</>
-	);
-};
+	)
+}
 
 Tag.defaultProps = {
 	tag: "Tag",
@@ -27,6 +27,6 @@ Tag.defaultProps = {
 	px: "px-2.5",
 	py: "py-0.5",
 	font: "text-xxs",
-};
+}
 
-export default Tag;
+export default Tag

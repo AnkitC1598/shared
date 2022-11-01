@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const UserFollowed = ({ className }) => {
 	return (
@@ -14,11 +14,11 @@ const UserFollowed = ({ className }) => {
 				/>
 			</svg>
 		</>
-	);
-};
+	)
+}
 
 UserFollowed.defaultProps = {
 	className: "h-5 w-5",
-};
+}
 
-export default UserFollowed;
+export default UserFollowed
