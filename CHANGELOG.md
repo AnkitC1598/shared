@@ -1,3 +1,17 @@
+# Changelog
+
+## [2.0.0](https://github.com/AnkitC1598/shared/compare/v1.1.13...v2.0.0) (2022-11-01)
+
+
+### ✨ Features
+
+* NextJS 13, added conventional commits with prettier, commitlint, release-it ([ac58108](https://github.com/AnkitC1598/shared/commit/ac58108819582461b371105f5dfdb9598cafdf0f))
+
+
+### 🐛 Bug Fixes
+
+* shared rules for commitlint ([1edce51](https://github.com/AnkitC1598/shared/commit/1edce51d551cdb30fc83378bc051c5c336321e9f))
+
 ## [1.1.13](https://github.com/AnkitC1598/shared/compare/v1.1.13...1.1.12) (2022-10-26)
 ### :hammer:
 * minor atomic update ([f9265c](https://github.com/AnkitC1598/shared/commit/f9265ccacc9044f3b73298b7cd5f48e91f2d16ff))
@@ -183,4 +197,3 @@
 
 
 ## [1.0.0 [Initial commit from Create Next App]](https://github.com/AnkitC1598/shared/commit/f211f408afc2e70da59028c3d117810db07ee6a2) (2022-08-28)
-
