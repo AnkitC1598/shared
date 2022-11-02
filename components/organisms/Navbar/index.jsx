@@ -1,10 +1,11 @@
+"use client"
+
 import { Popover, Transition } from "@headlessui/react"
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { BoltIcon, BoltSlashIcon } from "@heroicons/react/24/solid"
 import Link from "next/link"
-import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 import { Fragment } from "react"
-import CookieService from "../../../services/cookie.service"
 import { classNames } from "../../../utils"
 import { ButtonLink, Tooltip } from "../../atoms"
 import NavDropDown from "../../molecules/NavDropDown"
@@ -55,14 +56,12 @@ const Navbar = ({
 			Object.prototype.toString.call(user)
 		)
 	)
-		throw new Error("Navbar: user prop must be passed with withAuth prop")
+		throw new Error(
+			"Navbar: user must be an object or null when withAuth is true"
+		)
 
-	const router = useRouter()
-	const logout = () => {
-		dispatch({ type: "LOGOUT" })
-		CookieService.removeTokens()
-		router.push("/login")
-	}
+	const path = usePathname()
+
 	return (
 		<>
 			<div className="mx-auto w-full border-b border-neutral-200 bg-white text-slate-900 dark:border-neutral-800 dark:bg-neutral-900 dark:text-slate-200">
@@ -150,7 +149,7 @@ const Navbar = ({
 									"[object Boolean]" && withAuth ? (
 									user ? null : (
 										<span className="flex space-x-2 items-center">
-											{router.asPath !== "/login" ? (
+											{path !== "/login" ? (
 												<ButtonLink
 													to="/login"
 													label="Sign In"
@@ -158,7 +157,7 @@ const Navbar = ({
 													withCurrent={false}
 												/>
 											) : null}{" "}
-											{router.asPath !== "/register" ? (
+											{path !== "/register" ? (
 												<ButtonLink
 													to="/register"
 													label="Sign Up"
@@ -255,8 +254,7 @@ const Navbar = ({
 													className="flex space-x-2 justify-evenly"
 													onClick={close}
 												>
-													{router.asPath !==
-													"/login" ? (
+													{path !== "/login" ? (
 														<ButtonLink
 															to="/login"
 															label="Sign In"
@@ -264,8 +262,7 @@ const Navbar = ({
 															withCurrent={false}
 														/>
 													) : null}{" "}
-													{router.asPath !==
-													"/register" ? (
+													{path !== "/register" ? (
 														<ButtonLink
 															to="/register"
 															label="Sign Up"

@@ -1,8 +1,7 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
-import { Tooltip } from ".."
 
-const BreadcrumbItem = ({ name, label, to }) => {
+const BreadcrumbItem = ({ label, to }) => {
 	return (
 		<>
 			<li className="group relative flex items-center overflow-y-visible">
@@ -32,17 +31,12 @@ const BreadcrumbItem = ({ name, label, to }) => {
 						</span>
 					</div>
 				)}
-				<Tooltip
-					position="top"
-					label={name}
-				/>
 			</li>
 		</>
 	)
 }
 
 BreadcrumbItem.defaultProps = {
-	name: null,
 	label: null,
 	to: null,
 }

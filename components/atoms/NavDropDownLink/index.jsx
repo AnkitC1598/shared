@@ -8,7 +8,7 @@ const NavDropDownLink = forwardRef(({ href, children, ...rest }, ref) => {
 			ref={ref}
 			{...rest}
 		>
-			<span>{children}</span>
+			<>{children}</>
 		</Link>
 	)
 })

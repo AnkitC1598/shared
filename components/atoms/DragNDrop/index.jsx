@@ -1,3 +1,5 @@
+"use client"
+
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react"
 import { classNames } from "../../../utils"
@@ -86,7 +88,6 @@ const DragNDrop = ({ label, onFileChange, formats, formatType, maxSize }) => {
 		}
 	}, [])
 
-	useEffect(() => {})
 	return (
 		<>
 			<div className="h-full flex flex-col">

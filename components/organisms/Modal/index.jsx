@@ -1,3 +1,5 @@
+"use client"
+
 import { Dialog, Transition } from "@headlessui/react"
 import { PlusIcon } from "@heroicons/react/20/solid"
 import { Fragment, useMemo, useState } from "react"
@@ -12,11 +14,8 @@ const Modal = ({
 	dimensions,
 	className,
 }) => {
-	const hasCustomHandler = useMemo(
-		() =>
-			Object.prototype.toString.call(customHandler) === "[object Object]",
-		[customHandler]
-	)
+	const hasCustomHandler =
+		Object.prototype.toString.call(customHandler) === "[object Object]"
 
 	const [isOpen, setIsOpen] = useState(false)
 

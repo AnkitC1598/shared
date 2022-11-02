@@ -1,3 +1,5 @@
+"use client"
+
 import { useMemo } from "react"
 import { TableData } from "../../atoms"
 
@@ -31,22 +33,24 @@ const TableBody = ({ rows, search, sort, sortBy }) => {
 	}, [rows, search, sortBy])
 
 	return (
-		<tbody className="divide-y divide-gray-200 bg-white">
-			{rows?.map((row, idx) => (
-				<tr key={idx}>
-					<TableData data={idx + 1} />
-					{row.map((r, rIdx) => (
-						<TableData
-							key={rIdx}
-							data={r.data}
-							isLink={r.isLink}
-							isIterable={r.isIterable}
-							isStatus={r.isStatus}
-						/>
-					))}
-				</tr>
-			))}
-		</tbody>
+		<>
+			<tbody className="divide-y divide-gray-200 bg-white">
+				{rows?.map((row, idx) => (
+					<tr key={idx}>
+						<TableData data={idx + 1} />
+						{row.map((r, rIdx) => (
+							<TableData
+								key={rIdx}
+								data={r.data}
+								isLink={r.isLink}
+								isIterable={r.isIterable}
+								isStatus={r.isStatus}
+							/>
+						))}
+					</tr>
+				))}
+			</tbody>
+		</>
 	)
 }
 

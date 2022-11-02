@@ -1,7 +1,7 @@
 import React from "react"
 import { classNames } from "../../../utils"
 
-const Img = ({ className, size, alt, src }) => {
+const Img = ({ className, alt, src }) => {
 	return (
 		<>
 			<img

@@ -18,16 +18,19 @@ const Tooltip = ({ position = "top", label, bgColor }) => {
 		default:
 			break
 	}
+
 	return (
-		<span
-			className={classNames(
-				"invisible absolute w-max rounded-md px-2 py-1 text-xxs font-normal capitalize text-white group-hover:visible",
-				positionClass,
-				bgColor
-			)}
-		>
-			{label}
-		</span>
+		<>
+			<span
+				className={classNames(
+					"invisible absolute w-max rounded-md px-2 py-1 text-xxs font-normal capitalize text-white group-hover:visible",
+					positionClass,
+					bgColor
+				)}
+			>
+				{label}
+			</span>
+		</>
 	)
 }
 

@@ -1,3 +1,5 @@
+"use client"
+
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { Combobox, Transition } from "@headlessui/react"
 import { XMarkIcon } from "@heroicons/react/24/solid"
