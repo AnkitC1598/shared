@@ -6,9 +6,9 @@ import { TableBody, TableHead } from "../../molecules"
 
 const Table = ({ headers, srHeader, search, tableData }) => {
 	if (Object.prototype.toString.call(headers) !== "[object Array]")
-		return null
+		throw new Error("Table: headers must be an array")
 	if (Object.prototype.toString.call(tableData) !== "[object Array]")
-		return null
+		throw new Error("Table: tableData must be an array")
 
 	const [sortBy, setSortBy] = useState({
 		key: "idx",

@@ -6,7 +6,8 @@ const Breadcrumb = ({ breadcrumbs }) => {
 	if (Object.prototype.toString.call(breadcrumbs) !== "[object Array]")
 		throw new Error("Breadcrumb: breadcrumbs must be an array")
 
-	if (breadcrumbs.length === 0) return null
+	if (breadcrumbs.length === 0)
+		throw new Error("Breadcrumb: breadcrumbs must not be empty")
 
 	return (
 		<>

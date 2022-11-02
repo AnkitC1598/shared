@@ -2,7 +2,8 @@ import { classNames } from "../../../utils"
 import { Tooltip } from ".."
 
 const CardTitle = ({ title, tooltip }) => {
-	if (!title) return null
+	if (Object.prototype.toString.call(title) !== "[object String]")
+		throw new Error("CardTitle: title must be a string")
 
 	return (
 		<>

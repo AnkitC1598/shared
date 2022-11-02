@@ -2,6 +2,9 @@ import React from "react"
 import { classNames } from "../../../utils"
 
 const Img = ({ className, alt, src }) => {
+	if (Object.prototype.toString.call(src) !== "[object String]")
+		throw new Error("Img: src must be a string")
+
 	return (
 		<>
 			<img

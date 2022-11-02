@@ -1,7 +1,8 @@
 import React from "react"
 
 const Title = ({ text }) => {
-	if (!text) return null
+	if (Object.prototype.toString.call(text) !== "[object String]")
+		throw new Error("Title: text must be a string")
 
 	return (
 		<>

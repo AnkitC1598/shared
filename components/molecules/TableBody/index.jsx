@@ -4,7 +4,8 @@ import { useMemo } from "react"
 import { TableData } from "../../atoms"
 
 const TableBody = ({ rows, search, sort, sortBy }) => {
-	if (Object.prototype.toString.call(rows) !== "[object Array]") return null
+	if (Object.prototype.toString.call(rows) !== "[object Array]")
+		throw new Error("TableBody: rows must be an array")
 
 	rows = useMemo(() => {
 		let tempRows = rows

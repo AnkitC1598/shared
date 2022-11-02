@@ -5,8 +5,8 @@ import { classNames } from "../../../utils"
 
 const Options = ({ options }) => {
 	if (Object.prototype.toString.call(options) !== "[object Array]")
-		throw new Error("Options must be an array")
-	if (!options.length) throw new Error("Options must have atleast one option")
+		throw new Error("Options: options must be an array")
+	if (!options.length) throw new Error("Options: options must not be empty")
 
 	return (
 		<>

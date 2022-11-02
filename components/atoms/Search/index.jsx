@@ -3,7 +3,7 @@ import { classNames } from "../../../utils"
 
 const Search = ({ className, placeholder, setSearch }) => {
 	if (Object.prototype.toString.call(setSearch) !== "[object Function]")
-		return null
+		throw new Error("Search: setSearch must be a function")
 
 	return (
 		<>

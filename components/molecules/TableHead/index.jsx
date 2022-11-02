@@ -3,7 +3,7 @@ import { TableHeader } from "../../atoms"
 
 const TableHead = ({ headers, srHeader, setSortBy, sortBy }) => {
 	if (Object.prototype.toString.call(headers) !== "[object Array]")
-		return null
+		throw new Error("TableHead: headers must be an array")
 
 	return (
 		<>

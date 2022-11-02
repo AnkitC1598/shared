@@ -3,7 +3,7 @@ import { classNames } from "../../../utils"
 
 const Avatar = ({ alt, imgUrl, size }) => {
 	if (Object.prototype.toString.call(imgUrl) !== "[object String]")
-		return null
+		throw new Error("Avatar: imgUrl must be a string")
 
 	return (
 		<>
