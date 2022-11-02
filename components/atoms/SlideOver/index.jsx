@@ -53,7 +53,7 @@ const SlideOver = ({ isOpen, children, close, title }) => {
 													</div>
 												</div>
 											</div>
-											<div className="relative flex-1 px-4 sm:px-6">
+											<div className="relative flex-1 px-4 sm:px-6 overflow-hidden">
 												{children}
 											</div>
 										</div>
