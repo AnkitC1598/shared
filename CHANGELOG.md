@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.0.1](https://github.com/AnkitC1598/shared/compare/v2.0.0...v2.0.1) (2022-11-02)
+
+
+### 🐛 Bug Fixes
+
+* **nextjs:** migrate server to client side components ([73bb89b](https://github.com/AnkitC1598/shared/commit/73bb89b3b97ed6c5ca62d6a74a8379fb14bf4fff))
+* **prop error:**  now throws error for prop errors ([b9e7e3c](https://github.com/AnkitC1598/shared/commit/b9e7e3cb27baf950737e1f60f1978e1b31102880))
+
 ## [2.0.0](https://github.com/AnkitC1598/shared/compare/v1.1.13...v2.0.0) (2022-11-01)
 
 
