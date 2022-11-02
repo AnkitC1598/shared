@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.2](https://github.com/AnkitC1598/shared/compare/v2.0.1...v2.0.2) (2022-11-02)
+
+
+### 🎨 Styles
+
+* SlideOver set overflow hidden ([7f28a0a](https://github.com/AnkitC1598/shared/commit/7f28a0a61307632e20695bfad4783be86b8b782c))
+
 ### [2.0.1](https://github.com/AnkitC1598/shared/compare/v2.0.0...v2.0.1) (2022-11-02)
 
 
