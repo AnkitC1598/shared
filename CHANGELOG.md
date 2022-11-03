@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.1](https://github.com/AnkitC1598/shared/compare/v2.1.0...v2.1.1) (2022-11-03)
+
+
+### 🎨 Styles
+
+* **tree:** chevron min size fixed ([528e205](https://github.com/AnkitC1598/shared/commit/528e205b8f99ec0ab32dabb03fab7b8fc4c0f0d7))
+
 ## [2.1.0](https://github.com/AnkitC1598/shared/compare/v2.0.2...v2.1.0) (2022-11-03)
 
 
