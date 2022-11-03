@@ -33,7 +33,6 @@ const Typography = () => {
 						<Avatar size="h-28" />
 						<div>Avatar</div>
 					</div>
-
 					<div className="flex flex-col items-center justify-center p-2 hover:shadow-lg rounded-md border space-y-2">
 						<Button
 							label="Button"
