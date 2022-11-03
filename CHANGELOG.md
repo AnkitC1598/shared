@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/AnkitC1598/shared/compare/v2.0.2...v2.1.0) (2022-11-03)
+
+
+### ✨ Features
+
+* **tree:** nested tree strcture ([e07e2bc](https://github.com/AnkitC1598/shared/commit/e07e2bc59215d5684e5ecf66cecbf6f2d639ed3f))
+
 ### [2.0.2](https://github.com/AnkitC1598/shared/compare/v2.0.1...v2.0.2) (2022-11-02)
 
 
