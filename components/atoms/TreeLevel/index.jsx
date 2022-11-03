@@ -18,7 +18,7 @@ const TreeLevel = ({ level }) => {
 				{level.children.length ? (
 					<ChevronRightIcon
 						className={classNames(
-							"h-6 w-6 transition-all",
+							"min-h-6 h-6 min-w-6 w-6 transition-all",
 							isOpen ? "rotate-90" : ""
 						)}
 					/>
