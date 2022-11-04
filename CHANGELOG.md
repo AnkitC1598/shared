@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.2](https://github.com/AnkitC1598/shared/compare/v2.1.1...v2.1.2) (2022-11-04)
+
+
+### 🎨 Styles
+
+* **tree:** added tree margin border and updated style of tree ([b714009](https://github.com/AnkitC1598/shared/commit/b714009f9027f38d0b9e1981f4e6e950253bd117))
+
 ### [2.1.1](https://github.com/AnkitC1598/shared/compare/v2.1.0...v2.1.1) (2022-11-03)
 
 
