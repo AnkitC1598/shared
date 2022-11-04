@@ -12,6 +12,7 @@ const FormInput = ({
 	placeholder,
 	required,
 	defaultValue,
+	disabled,
 }) => {
 	return (
 		<>
@@ -32,9 +33,10 @@ const FormInput = ({
 				autoComplete={autoComplete}
 				onChange={onChange}
 				required={required}
+				disabled={disabled}
 				defaultValue={defaultValue}
 				className={classNames(
-					"mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm",
+					"mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm text-slate-900 enabled:focus:border-indigo-500 enabled:focus:outline-none enabled:focus:ring-indigo-500 sm:text-sm disabled:bg-neutral-300 disabled:cursor-not-allowed",
 					className
 				)}
 			/>
@@ -53,6 +55,7 @@ FormInput.defaultProps = {
 	className: "",
 	placeholder: null,
 	required: false,
+	disabled: false,
 	defaultValue: "",
 }
 
