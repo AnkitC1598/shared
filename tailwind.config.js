@@ -13,7 +13,7 @@ module.exports = {
 				navScreen: "calc(100vh - 65px)",
 				navScreenSpaced: "calc(100vh - 90px)",
 				chatTab: "calc(100vh - 172px)",
-				screen: "calc(var(--vh) * 100)",
+				screen: "calc(var(--vh, 1px) * 100)",
 			},
 			minHeight: theme => theme("height"),
 			maxHeight: theme => theme("height"),

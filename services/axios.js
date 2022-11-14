@@ -36,10 +36,11 @@ fetchWithToken.interceptors.response.use(
 	async err => {
 		const originalConfig = err.config
 
-		if (err.response?.status !== 401) {
-			return Promise.reject(err)
-		}
-		if (originalConfig.url === "/v1/auth/access") {
+		if (
+			err.response?.status !== 401 ||
+			originalConfig.url === "/v1/auth/access" ||
+			!CookieService.getLocalRefreshToken()
+		) {
 			// Refresh Token was expired
 			return Promise.reject(err)
 		}
