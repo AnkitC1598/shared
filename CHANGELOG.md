@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.3](https://github.com/AnkitC1598/shared/compare/v2.1.2...v2.1.3) (2022-11-14)
+
+
+### 🐛 Bug Fixes
+
+* **atoms, config:** minor atomic flow update, axios error handling, tailwind default var ([04bca90](https://github.com/AnkitC1598/shared/commit/04bca907b0e392200bd027f3e8e6c070f20d5662))
+
 ### [2.1.2](https://github.com/AnkitC1598/shared/compare/v2.1.1...v2.1.2) (2022-11-04)
 
 
